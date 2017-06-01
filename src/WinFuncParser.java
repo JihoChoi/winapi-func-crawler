@@ -36,6 +36,10 @@ public class WinFuncParser {
                 }
                 System.out.println(str);
 
+                // todo handle parameter
+
+                // ex) if contains DWORD -> swap to unsigned int
+
             }
         }
         conn.disconnect();

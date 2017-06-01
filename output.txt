@@ -1,0 +1,101 @@
+BOOL WINAPI _TrackMouseEvent(  _Inout_ LPTRACKMOUSEEVENT lpEventTrack);
+
+HKL WINAPI ActivateKeyboardLayout(  _In_ HKL  hkl,  _In_ UINT Flags);
+
+ATOM WINAPI AddAtom(  _In_ LPCTSTR lpString);
+
+BOOL WINAPI AddClipboardFormatListener(  _In_ HWND hwnd);
+
+BOOL APIENTRY AddERExcludedApplication(  _In_ LPCTSTR szApplication);
+
+HANDLE AddFontMemResourceEx(  _In_ PVOID pbFont,  _In_ DWORD cbFont,  _In_ PVOID pdv,  _In_ DWORD *pcFonts);
+
+<span style="color:Blue;">int</span> AddFontResource(  _In_ LPCTSTR lpszFilename);
+
+<span style="color:Blue;">int</span> AddFontResourceEx(  _In_ LPCTSTR lpszFilename,  _In_ DWORD   fl,  _In_ PVOID   pdv);
+
+BOOL AddForm(  _In_ HANDLE hPrinter,  _In_ DWORD  Level,  _In_ LPBYTE pForm);
+
+BOOL AddJob(  _In_  HANDLE  hPrinter,  _In_  DWORD   Level,  _Out_ LPBYTE  pData,  _In_  DWORD   cbBuf,  _Out_ LPDWORD pcbNeeded);
+
+BOOL AddMonitor(  _In_ LPTSTR pName,  _In_ DWORD  Level,  _In_ LPBYTE pMonitors);
+
+  __in  HANDLE hSession,  __in  LPNTMS_GUID lpMediaTypeId,  __in  LPNTMS_GUID lpLibId);
+
+BOOL AddPort(  _In_ LPTSTR pName,  _In_ HWND   hWnd,  _In_ LPTSTR pMonitorName);
+
+HANDLE AddPrinter(  _In_ LPTSTR *pName,  _In_ DWORD  Level,  _In_ LPBYTE pPrinter);
+
+BOOL AddPrinterConnection(  _In_ LPTSTR pName);
+
+BOOL AddPrinterDriver(  _In_ LPTSTR pName,  _In_ DWORD  Level,  _In_ LPBYTE pDriverInfo);
+
+BOOL AddPrinterDriverEx(  _In_    LPTSTR pName,  _In_    DWORD  Level,  _Inout_ LPBYTE pDriverInfo,  _In_    DWORD  dwFileCopyFlags);
+
+BOOL AddPrintProcessor(  _In_ LPTSTR pName,  _In_ LPTSTR pEnvironment,  _In_ LPTSTR pPathName,  _In_ LPTSTR pPrintProcessorName);
+
+BOOL AddPrintProvidor(  _In_ LPTSTR pName,  _In_ DWORD  Level,  _In_ LPBYTE pProviderInfo);
+
+BOOL WINAPI AddSIDToBoundaryDescriptor(  _Inout_ HANDLE *BoundaryDescriptor,  _In_    PSID   RequiredSid);
+
+DWORD WINAPI AddUsersToEncryptedFile(  _In_ LPCWSTR                      lpFileName,  _In_ PENCRYPTION_CERTIFICATE_LIST pUsers);
+
+PVOID WINAPI AddVectoredExceptionHandler(  _In_ ULONG                       FirstHandler,  _In_ PVECTORED_EXCEPTION_HANDLER VectoredHandler);
+
+BOOL WINAPI AdjustWindowRect(  _Inout_ LPRECT lpRect,  _In_    DWORD  dwStyle,  _In_    BOOL   bMenu);
+
+BOOL WINAPI AdjustWindowRectEx(  _Inout_ LPRECT lpRect,  _In_    DWORD  dwStyle,  _In_    BOOL   bMenu,  _In_    DWORD  dwExStyle);
+
+LONG AdvancedDocumentProperties(  _In_  HWND     hWnd,  _In_  HANDLE   hPrinter,  _In_  LPTSTR   pDeviceName,  _Out_ PDEVMODE pDevModeOutput,  _In_  PDEVMODE pDevModeInput);
+
+HRESULT __stdcall AlertSamplesAvailFunc(<span style="color:Blue;">void</span>);
+
+  __in   HANDLE hSession,  __in   LPNTMS_GUID lpMediaPool,  __in   LPNTMS_GUID lpPartId,  __out  LPNTMS_GUID lpMediaId,  __in   DWORD dwOptions,  __in   DWORD dwTimeout,  __out  LPNTMS_ALLOCATION_INFORMATION lpAllocateInformation);
+
+BOOL WINAPI AllocateUserPhysicalPages(  _In_    HANDLE     hProcess,  _Inout_ PULONG_PTR NumberOfPages,  _Out_   PULONG_PTR UserPfnArray);
+
+BOOL WINAPI AllocateUserPhysicalPagesNuma(  _In_    HANDLE     hProcess,  _Inout_ PULONG_PTR NumberOfPages,  _Out_   PULONG_PTR PageArray,  _In_    DWORD      nndPreferred);
+
+BOOL WINAPI AllocConsole(<span style="color:Blue;">void</span>);
+
+BOOL WINAPI AllowSetForegroundWindow(  _In_ DWORD dwProcessId);
+
+BOOL AlphaBlend(  _In_ HDC           hdcDest,  _In_ <span style="color:Blue;">int</span>           xoriginDest,  _In_ <span style="color:Blue;">int</span>           yoriginDest,  _In_ <span style="color:Blue;">int</span>           wDest,  _In_ <span style="color:Blue;">int</span>           hDest,  _In_ HDC           hdcSrc,  _In_ <span style="color:Blue;">int</span>           xoriginSrc,  _In_ <span style="color:Blue;">int</span>           yoriginSrc,  _In_ <span style="color:Blue;">int</span>           wSrc,  _In_ <span style="color:Blue;">int</span>           hSrc,  _In_ BLENDFUNCTION ftn);
+
+BOOL AngleArc(  _In_ HDC   hdc,  _In_ <span style="color:Blue;">int</span>   X,  _In_ <span style="color:Blue;">int</span>   Y,  _In_ DWORD dwRadius,  _In_ FLOAT eStartAngle,  _In_ FLOAT eSweepAngle);
+
+BOOL AnimatePalette(  _In_       HPALETTE     hpal,  _In_       UINT         iStartIndex,  _In_       UINT         cEntries,  _In_ <span style="color:Blue;">const</span> PALETTEENTRY *ppe);
+
+BOOL WINAPI AnimateWindow(  _In_ HWND  hwnd,  _In_ DWORD dwTime,  _In_ DWORD dwFlags);
+
+BOOL WINAPI AnyPopup(<span style="color:Blue;">void</span>);
+
+VOID CALLBACK APCProc(  _In_ ULONG_PTR dwParam);
+
+BOOL WINAPI AppendMenu(  _In_     HMENU    hMenu,  _In_     UINT     uFlags,  _In_     UINT_PTR uIDNewItem,  _In_opt_ LPCTSTR  lpNewItem);
+
+VOID WINAPI ApplicationRecoveryFinished(  _In_ BOOL bSuccess);
+
+HRESULT WINAPI ApplicationRecoveryInProgress(  _Out_ PBOOL pbCanceled);
+
+BOOL Arc(  _In_ HDC hdc,  _In_ <span style="color:Blue;">int</span> nLeftRect,  _In_ <span style="color:Blue;">int</span> nTopRect,  _In_ <span style="color:Blue;">int</span> nRightRect,  _In_ <span style="color:Blue;">int</span> nBottomRect,  _In_ <span style="color:Blue;">int</span> nXStartArc,  _In_ <span style="color:Blue;">int</span> nYStartArc,  _In_ <span style="color:Blue;">int</span> nXEndArc,  _In_ <span style="color:Blue;">int</span> nYEndArc);
+
+BOOL ArcTo(  _In_ HDC hdc,  _In_ <span style="color:Blue;">int</span> nLeftRect,  _In_ <span style="color:Blue;">int</span> nTopRect,  _In_ <span style="color:Blue;">int</span> nRightRect,  _In_ <span style="color:Blue;">int</span> nBottomRect,  _In_ <span style="color:Blue;">int</span> nXRadial1,  _In_ <span style="color:Blue;">int</span> nYRadial1,  _In_ <span style="color:Blue;">int</span> nXRadial2,  _In_ <span style="color:Blue;">int</span> nYRadial2);
+
+BOOL WINAPI AreFileApisANSI(<span style="color:Blue;">void</span>);
+
+UINT WINAPI ArrangeIconicWindows(  _In_ HWND hWnd);
+
+BOOL WINAPI AssignProcessToJobObject(  _In_ HANDLE hJob,  _In_ HANDLE hProcess);
+
+BOOL WINAPI AttachConsole(  _In_ DWORD dwProcessId);
+
+BOOL WINAPI AttachThreadInput(  _In_ DWORD idAttach,  _In_ DWORD idAttachTo,  _In_ BOOL  fAttach);
+
+BOOL WINAPI AvQuerySystemResponsiveness(  _In_  HANDLE AvrtHandle,  _Out_ PULONG SystemResponsivenessValue);
+
+BOOL WINAPI AvRevertMmThreadCharacteristics(  _In_ HANDLE AvrtHandle);
+
+BOOL WINAPI AvRtCreateThreadOrderingGroup(  _Out_    PHANDLE        Context,  _In_     PLARGE_INTEGER Period,  _Inout_  GUID           *ThreadOrderingGuid,  _In_opt_ PLARGE_INTEGER Timeout);#include &lt;windows.h&gt;#include &lt;avrt.h&gt;#include &lt;stdio.h&gt;#pragma comment(lib, <span style="color:#A31515;">"Avrt.lib"</span>)#define _100NS_IN_1MS 10000<span style="color:Blue;">int</span> main( <span style="color:Blue;">void</span> ){    HANDLE hContext = NULL;    LARGE_INTEGER period, timeout;    GUID guid = { 0 };    BOOL bRes;    period.QuadPart = Int32x32To64(_100NS_IN_1MS, 1000);   <span style="color:Green;">// 1 second</span>    timeout.QuadPart = Int32x32To64(_100NS_IN_1MS, 10000); <span style="color:Green;">// 10 seconds</span>    bRes = AvRtCreateThreadOrderingGroup(             &amp;hContext,            &amp;period,            &amp;guid,            &amp;timeout );    <span style="color:Blue;">if</span>( bRes != TRUE )    {        printf(<span style="color:#A31515;">"Error creating group (%d)\n"</span>, GetLastError());            <span style="color:Blue;">return</span> 1;    }    <span style="color:Blue;">return</span> 0;}
+
+BOOL WINAPI AvRtCreateThreadOrderingGroupEx(  _Out_    PHANDLE        Context,  _In_     PLARGE_INTEGER Period,  _Inout_  GUID           *ThreadOrderingGuid,  _In_opt_ PLARGE_INTEGER Timeout,  _In_     LPCTSTR        TaskName);#i
