@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -22,24 +23,33 @@ public class Main {
 
         WinFuncParser fp = new WinFuncParser();
 
+        FileWriter fw = new FileWriter("output.txt");
+
         for (String url : URLs) {
 
-            if (url.equals("http://msdn.microsoft.com/en-us/library/aa383667%28VS.85,printer%29.aspx")) {
+            if (url.equals("https://msdn.microsoft.com/en-us/library/aa383667")) {
                 continue;
             }
 
-            System.out.println("URL: " + url);
-
+            System.out.println("URL  : " + url);
 
 
             String str = fp.parse(url);
-            System.out.println(str);
+
+            System.out.println("FUNC : " + str);
+            System.out.println("");
+
+//            fw.write("URL  : " + url + "\r\n");
+//            fw.write("FUNC : " + str + "\r\n");
 
 
-            System.out.println("FUNC: " + str);
+            fw.write(str + "\r\n");
+            fw.write("\r\n");
 
             // todo file io
         }
+
+        fw.close();
 
 
     }

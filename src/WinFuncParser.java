@@ -17,6 +17,8 @@ public class WinFuncParser {
 
     public String parse(String target) throws Exception {
 
+//        System.out.println("Target: " + target);
+
         HttpURLConnection conn = (HttpURLConnection) new URL(target).openConnection();
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
@@ -24,16 +26,16 @@ public class WinFuncParser {
         String line;
 
         while ((line = br.readLine()) != null) {
+
             if (line.contains("<pre>")) {
-                line = br.readLine();
+                br.readLine();
 
                 while ((line = br.readLine()).contains("</pre>") == false) {
                     str += line;
-                    System.out.println(str);
-
                     // todo some options to change raw function
-
                 }
+                System.out.println(str);
+
             }
         }
         conn.disconnect();

@@ -39,10 +39,16 @@ public class WinURLParser {
         while ((line = br.readLine()) != null) {
             if (line.contains("msdn.microsoft.com/en-us/library")) {
 
-                String url = line.split("href=\"")[1].split("\"")[0];
+                String url = line.split("href=\"http:")[1].split("%")[0];
+                url = "https:" + url;
                 System.out.println(i + ": " + url);
                 i++;
                 msdnURLs.add(url);
+
+                // this line is for testing purpose
+                // if ( i == 4 ) break;
+
+                // todos: change WIN parameter to c++ parameter
             }
         }
         conn.disconnect();
