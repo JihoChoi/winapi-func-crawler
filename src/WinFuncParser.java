@@ -34,7 +34,9 @@ public class WinFuncParser {
                     str += line;
                     // todo some options to change raw function
                 }
-                System.out.println(str);
+                System.out.println("ORG  : " + str);
+
+                break;
 
                 // todo handle parameter
 
