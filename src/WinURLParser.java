@@ -20,6 +20,9 @@ public class WinURLParser {
 
     public WinURLParser() {
 
+        System.out.println("URL Parser is to retrieve MSDN Document URLs from the API Page.");
+        System.out.println("");
+
     }
 
     public List<String> parse() throws Exception {

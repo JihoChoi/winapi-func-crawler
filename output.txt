@@ -150,4 +150,450 @@ ULONG  BufferCallback(   PEVENT_TRACE_LOGFILE Buffer);
 
 BOOL  BuildCommDCB(    LPCTSTR lpDef,   LPDCB   lpDCB);
 
-BOOL  BuildCommDCBAndTimeouts(    LPCTSTR        lpDef,   LPDCB          lpDCB,   LPCOMMTIMEOU
+BOOL  BuildCommDCBAndTimeouts(    LPCTSTR        lpDef,   LPDCB          lpDCB,   LPCOMMTIMEOUTS lpCommTimeouts);
+
+BOOL  CallbackMayRunLong(   PTP_CALLBACK_INSTANCE pci);
+
+BOOL  CallMsgFilter(   LPMSG lpMsg,   int   nCode);
+
+BOOL  CallNamedPipe(    LPCTSTR lpNamedPipeName,    LPVOID  lpInBuffer,    DWORD   nInBufferSize,   LPVOID  lpOutBuffer,    DWORD   nOutBufferSize,   LPDWORD lpBytesRead,    DWORD   nTimeOut);
+
+LRESULT  CallNextHookEx(   HHOOK  hhk,       int    nCode,       WPARAM wParam,       LPARAM lParam);
+
+NTSTATUS  CallNtPowerInformation(    POWER_INFORMATION_LEVEL InformationLevel,    PVOID                   lpInputBuffer,    ULONG                   nInputBufferSize,   PVOID                   lpOutputBuffer,    ULONG                   nOutputBufferSize);
+
+LRESULT  CallWindowProc(   WNDPROC lpPrevWndFunc,   HWND    hWnd,   UINT    Msg,   WPARAM  wParam,   LPARAM  lParam);
+
+LRESULT CALLBACK CallWndProc(   int    nCode,   WPARAM wParam,   LPARAM lParam);
+
+LRESULT CALLBACK CallWndRetProc(   int    nCode,   WPARAM wParam,   LPARAM lParam);
+
+BOOL CancelDC(   HDC hdc);
+
+BOOL  CancelIo(   HANDLE hFile);
+
+BOOL  CancelIoEx(       HANDLE       hFile,   LPOVERLAPPED lpOverlapped);
+
+    HANDLE hSession,    LPNTMS_GUID lpRequestId);
+
+    HANDLE hSession,    LPNTMS_GUID lpRequestId);
+
+BOOL  CancelSynchronousIo(   HANDLE hThread);
+
+VOID  CancelThreadpoolIo(   PTP_IO pio);
+
+BOOL  CancelWaitableTimer(   HANDLE hTimer);
+
+BOOLEAN  CanUserWritePwrScheme(void);
+
+WORD  CascadeWindows(         HWND hwndParent,             UINT wHow,   const RECT *lpRect,             UINT cKids,   const HWND *lpKids);
+
+LRESULT CALLBACK CBTProc(   int    nCode,   WPARAM wParam,   LPARAM lParam);
+
+BOOL  ChangeClipboardChain(   HWND hWndRemove,   HWND hWndNewNext);
+
+LONG ChangeDisplaySettings(   DEVMODE *lpDevMode,   DWORD   dwflags);
+
+LONG ChangeDisplaySettingsEx(   LPCTSTR lpszDeviceName,   DEVMODE *lpDevMode,       HWND    hwnd,   DWORD   dwflags,   LPVOID  lParam);
+
+    HANDLE hSession,    LPNTMS_GUID Pmid,    LPNTMS_GUID MPoolId);
+
+BOOL  ChangeServiceConfig(        SC_HANDLE hService,        DWORD     dwServiceType,        DWORD     dwStartType,        DWORD     dwErrorControl,    LPCTSTR   lpBinaryPathName,    LPCTSTR   lpLoadOrderGroup,   LPDWORD   lpdwTagId,    LPCTSTR   lpDependencies,    LPCTSTR   lpServiceStartName,    LPCTSTR   lpPassword,    LPCTSTR   lpDisplayName);
+
+BOOL  ChangeServiceConfig2(       SC_HANDLE hService,       DWORD     dwInfoLevel,   LPVOID    lpInfo);
+
+BOOL  ChangeTimerQueueTimer(   HANDLE TimerQueue,    HANDLE Timer,       ULONG  DueTime,       ULONG  Period);
+
+BOOL  ChangeWindowMessageFilter(   UINT  message,   DWORD dwFlag);
+
+LPTSTR  CharLower(   LPTSTR lpsz);
+
+DWORD  CharLowerBuff(   LPTSTR lpsz,      DWORD  cchLength);
+
+LPTSTR  CharNext(   LPCTSTR lpsz);
+
+LPSTR  CharNextExA(   WORD   CodePage,   LPCSTR lpCurrentChar,   DWORD  dwFlags);
+
+LPTSTR  CharPrev(   LPCTSTR lpszStart,   LPCTSTR lpszCurrent);
+
+LPSTR  CharPrevExA(   WORD   CodePage,   LPCSTR lpStart,   LPCSTR lpCurrentChar,   DWORD  dwFlags);
+
+BOOL  CharToOem(    LPCTSTR lpszSrc,   LPSTR   lpszDst);
+
+
+
+LPTSTR  CharUpper(   LPTSTR lpsz);
+
+DWORD  CharUpperBuff(   LPTSTR lpsz,      DWORD  cchLength);
+
+BOOL CheckDlgButton(   HWND hDlg,   int  nIDButton,   UINT uCheck);
+
+DWORD  CheckMenuItem(   HMENU hmenu,   UINT  uIDCheckItem,   UINT  uCheck);
+
+BOOL  CheckMenuRadioItem(   HMENU hmenu,   UINT  idFirst,   UINT  idLast,   UINT  idCheck,   UINT  uFlags);
+
+BOOL  CheckNameLegalDOS8Dot3(        LPCTSTR lpName,   LPSTR   lpOemName,        DWORD   OemNameSize,   PBOOL   pbNameContainsSpaces,       PBOOL   pbNameLegal);
+
+BOOL CheckRadioButton(   HWND hDlg,   int  nIDFirstButton,   int  nIDLastButton,   int  nIDCheckButton);
+
+BOOL  CheckRemoteDebuggerPresent(      HANDLE hProcess,   PBOOL  pbDebuggerPresent);
+
+HWND  ChildWindowFromPoint(   HWND  hWndParent,   POINT Point);
+
+HWND  ChildWindowFromPointEx(   HWND  hwndParent,   POINT pt,   UINT  uFlags);
+
+BOOL Chord(   HDC hdc,   int nLeftRect,   int nTopRect,   int nRightRect,   int nBottomRect,   int nXRadial1,   int nYRadial1,   int nXRadial2,   int nYRadial2);
+
+     const BYTE const *pBuffer,     const DWORD nBufferSize,    MediaLabelInfo const *pLabelInfo);
+
+    HANDLE hSession,    LPNTMS_GUID lpDriveId);
+
+BOOL  ClearCommBreak(   HANDLE hFile);
+
+BOOL  ClearCommError(        HANDLE    hFile,   LPDWORD   lpErrors,   LPCOMSTAT lpStat);
+
+BOOL ClearEventLog(   HANDLE  hEventLog,   LPCTSTR lpBackupFileName);
+
+BOOL ClientToScreen(      HWND    hWnd,   LPPOINT lpPoint);
+
+BOOL  ClipCursor(   const RECT *lpRect);
+
+BOOL  CloseClipboard(void);
+
+BOOL  CloseDesktop(   HDESK hDesktop);
+
+HENHMETAFILE CloseEnhMetaFile(   HDC hdc);
+
+BOOL CloseEventLog(   HANDLE hEventLog);
+
+BOOL CloseFigure(   HDC hdc);
+
+BOOL  CloseHandle(   HANDLE hObject);
+
+HMETAFILE CloseMetaFile(   HDC hdc);
+
+    HANDLE hNotification);
+
+    HANDLE hSession);
+
+BOOL ClosePrinter(   HANDLE hPrinter);
+
+BOOLEAN  ClosePrivateNamespace(   HANDLE Handle,   ULONG  Flags);
+
+BOOL  CloseServiceHandle(   SC_HANDLE hSCObject);
+
+VOID  CloseThreadpool(   PTP_POOL ptpp);
+
+VOID  CloseThreadpoolCleanupGroup(   PTP_CLEANUP_GROUP ptpcg);
+
+VOID  CloseThreadpoolCleanupGroupMembers(       PTP_CLEANUP_GROUP ptpcg,          BOOL              fCancelPendingCallbacks,   PVOID             pvCleanupContext);
+
+VOID  CloseThreadpoolIo(   PTP_IO pio);
+
+VOID  CloseThreadpoolTimer(   PTP_TIMER pti);
+
+VOID  CloseThreadpoolWait(   PTP_WAIT pwa);
+
+VOID  CloseThreadpoolWork(   PTP_WORK pwk);
+
+VOID  CloseThreadWaitChainSession(   HWCT WctHandle);
+
+ULONG CloseTrace(   TRACEHANDLE TraceHandle);
+
+BOOL  CloseWindow(   HWND hWnd);
+
+BOOL  CloseWindowStation(   HWINSTA hWinSta);
+
+int CombineRgn(   HRGN hrgnDest,   HRGN hrgnSrc1,   HRGN hrgnSrc2,   int  fnCombineMode);
+
+BOOL CombineTransform(         LPXFORM lpxformResult,    const XFORM   *lpxform1,    const XFORM   *lpxform2);
+
+LPWSTR* CommandLineToArgvW(    LPCWSTR lpCmdLine,   int     *pNumArgs);
+
+BOOL  CommConfigDialog(      LPCTSTR      lpszName,      HWND         hWnd,   LPCOMMCONFIG lpCC);
+
+LONG  CompareFileTime(   const FILETIME *lpFileTime1,   const FILETIME *lpFileTime2);
+
+int CompareString(   LCID    Locale,   DWORD   dwCmpFlags,   LPCTSTR lpString1,   int     cchCount1,   LPCTSTR lpString2,   int     cchCount2);
+
+BOOL ConfigurePort(   LPTSTR pName,   HWND   hWnd,   LPTSTR pPortName);
+
+BOOL  ConnectNamedPipe(          HANDLE       hNamedPipe,   LPOVERLAPPED lpOverlapped);
+
+HANDLE ConnectToPrinterDlg(   HWND  hwnd,   DWORD Flags);
+
+BOOL  ContinueDebugEvent(   DWORD dwProcessId,   DWORD dwThreadId,   DWORD dwContinueStatus);
+
+ULONG  ControlCallback(   WMIDPREQUESTCODE RequestCode,   PVOID            Context,   ULONG            *Reserved,   PVOID            Buffer);
+
+BOOL  ControlService(    SC_HANDLE        hService,    DWORD            dwControl,   LPSERVICE_STATUS lpServiceStatus);
+
+BOOL  ControlServiceEx(      SC_HANDLE hService,      DWORD     dwControl,      DWORD     dwInfoLevel,   PVOID     pControlParams);
+
+ULONG ControlTrace(      TRACEHANDLE             SessionHandle,      LPCTSTR                 SessionName,   PEVENT_TRACE_PROPERTIES Properties,      ULONG                   ControlCode);
+
+LCID ConvertDefaultLocale(   LCID Locale);
+
+BOOL  ConvertFiberToThread(void);
+
+LPVOID  ConvertThreadToFiber(   LPVOID lpParameter);
+
+LPVOID  ConvertThreadToFiberEx(   LPVOID lpParameter,       DWORD  dwFlags);
+
+int  CopyAcceleratorTable(        HACCEL  hAccelSrc,   LPACCEL lpAccelDst,        int     cAccelEntries);
+
+HCURSOR  CopyCursor(   HCURSOR pcur);
+
+HENHMETAFILE CopyEnhMetaFile(   HENHMETAFILE hemfSrc,   LPCTSTR      lpszFile);
+
+BOOL  CopyFile(   LPCTSTR lpExistingFileName,   LPCTSTR lpNewFileName,   BOOL    bFailIfExists);
+
+BOOL  CopyFileEx(       LPCTSTR            lpExistingFileName,       LPCTSTR            lpNewFileName,   LPPROGRESS_ROUTINE lpProgressRoutine,   LPVOID             lpData,   LPBOOL             pbCancel,       DWORD              dwCopyFlags);
+
+HICON  CopyIcon(   HICON hIcon);
+
+HANDLE  CopyImage(   HANDLE hImage,   UINT   uType,   int    cxDesired,   int    cyDesired,   UINT   fuFlags);
+
+void CopyMemory(         PVOID  Destination,   const VOID   *Source,         SIZE_T Length);
+
+HMETAFILE CopyMetaFile(   HMETAFILE hmfSrc,   LPCTSTR   lpszFile);
+
+DWORD CALLBACK CopyProgressRoutine(       LARGE_INTEGER TotalFileSize,       LARGE_INTEGER TotalBytesTransferred,       LARGE_INTEGER StreamSize,       LARGE_INTEGER StreamBytesTransferred,       DWORD         dwStreamNumber,       DWORD         dwCallbackReason,       HANDLE        hSourceFile,       HANDLE        hDestinationFile,   LPVOID        lpData);typedef DWORD ( *LPPROGRESS_ROUTINE)(         LARGE_INTEGER TotalFileSize,         LARGE_INTEGER TotalBytesTransferred,         LARGE_INTEGER StreamSize,         LARGE_INTEGER StreamBytesTransferred,         DWORD         dwStreamNumber,         DWORD         dwCallbackReason,         HANDLE        hSourceFile,         HANDLE        hDestinationFile,     LPVOID        lpData);
+
+BOOL CopyRect(         LPRECT lprcDst,    const RECT   *lprcSrc);
+
+int  CountClipboardFormats(void);
+
+PDH_STATUS __stdcall CounterPathCallBack(   DWORD_PTR dwArg);
+
+HACCEL  CreateAcceleratorTable(   LPACCEL lpaccl,   int     cEntries);
+
+HBITMAP CreateBitmap(         int  nWidth,         int  nHeight,         UINT cPlanes,         UINT cBitsPerPel,   const VOID *lpvBits);
+
+HBITMAP CreateBitmapIndirect(   const BITMAP *lpbm);
+
+HANDLE  CreateBoundaryDescriptor(   LPCTSTR Name,   ULONG   Flags);
+
+HBRUSH CreateBrushIndirect(   const LOGBRUSH *lplb);
+
+BOOL  CreateCaret(       HWND    hWnd,   HBITMAP hBitmap,       int     nWidth,       int     nHeight);
+
+HBITMAP CreateCompatibleBitmap(   HDC hdc,   int nWidth,   int nHeight);
+
+HDC CreateCompatibleDC(   HDC hdc);
+
+HANDLE  CreateConsoleScreenBuffer(               DWORD               dwDesiredAccess,               DWORD               dwShareMode,     const SECURITY_ATTRIBUTES *lpSecurityAttributes,               DWORD               dwFlags,  _Reserved_       LPVOID              lpScreenBufferData);
+
+HCURSOR  CreateCursor(         HINSTANCE hInst,             int       xHotSpot,             int       yHotSpot,             int       nWidth,             int       nHeight,       const VOID      *pvANDPlane,       const VOID      *pvXORPlane);
+
+HDC CreateDC(             LPCTSTR lpszDriver,         LPCTSTR lpszDevice,             LPCTSTR lpszOutput,   const DEVMODE *lpInitData);
+
+HDESK  CreateDesktop(         LPCTSTR               lpszDesktop,  _Reserved_ LPCTSTR               lpszDevice,  _Reserved_ DEVMODE               *pDevmode,         DWORD                 dwFlags,         ACCESS_MASK           dwDesiredAccess,     LPSECURITY_ATTRIBUTES lpsa);
+
+HDESK  CreateDesktopEx(         LPCTSTR               lpszDesktop,  _Reserved_ LPCTSTR               lpszDevice,  _Reserved_ DEVMODE               *pDevmode,         DWORD                 dwFlags,         ACCESS_MASK           dwDesiredAccess,     LPSECURITY_ATTRIBUTES lpsa,         ULONG                 ulHeapSize,  _Reserved_ PVOID                 pvoid);
+
+HBITMAP CreateDIBitmap(         HDC              hdc,   const BITMAPINFOHEADER *lpbmih,         DWORD            fdwInit,   const VOID             *lpbInit,   const BITMAPINFO       *lpbmi,         UINT             fuUsage);
+
+HBRUSH CreateDIBPatternBrush(   HGLOBAL hglbDIBPacked,   UINT    fuColorSpec);
+
+HBRUSH CreateDIBPatternBrushPt(   const VOID *lpPackedDIB,         UINT iUsage);
+
+HBITMAP CreateDIBSection(          HDC        hdc,    const BITMAPINFO *pbmi,          UINT       iUsage,         VOID       **ppvBits,          HANDLE     hSection,          DWORD      dwOffset);
+
+HWND  CreateDialog(   HINSTANCE hInstance,       LPCTSTR   lpTemplate,   HWND      hWndParent,   DLGPROC   lpDialogFunc);
+
+HWND  CreateDialogIndirect(   HINSTANCE      hInstance,       LPCDLGTEMPLATE lpTemplate,   HWND           hWndParent,   DLGPROC        lpDialogFunc);
+
+HWND  CreateDialogIndirectParam(   HINSTANCE      hInstance,       LPCDLGTEMPLATE lpTemplate,   HWND           hWndParent,   DLGPROC        lpDialogFunc,       LPARAM         lParamInit);
+
+HWND  CreateDialogParam(   HINSTANCE hInstance,       LPCTSTR   lpTemplateName,   HWND      hWndParent,   DLGPROC   lpDialogFunc,       LPARAM    dwInitParam);
+
+BOOL  CreateDirectory(       LPCTSTR               lpPathName,   LPSECURITY_ATTRIBUTES lpSecurityAttributes);
+
+BOOL  CreateDirectoryEx(       LPCTSTR               lpTemplateDirectory,       LPCTSTR               lpNewDirectory,   LPSECURITY_ATTRIBUTES lpSecurityAttributes);
+
+HBITMAP CreateDiscardableBitmap(   HDC hdc,   int nWidth,   int nHeight);
+
+HRGN CreateEllipticRgn(   int nLeftRect,   int nTopRect,   int nRightRect,   int nBottomRect);
+
+HRGN CreateEllipticRgnIndirect(   const RECT *lprc);
+
+HDC CreateEnhMetaFile(         HDC     hdcRef,         LPCTSTR lpFilename,   const RECT    *lpRect,         LPCTSTR lpDescription);
+
+HANDLE  CreateEvent(   LPSECURITY_ATTRIBUTES lpEventAttributes,       BOOL                  bManualReset,       BOOL                  bInitialState,   LPCTSTR               lpName);
+
+HANDLE  CreateEventEx(   LPSECURITY_ATTRIBUTES lpEventAttributes,   LPCTSTR               lpName,       DWORD                 dwFlags,       DWORD                 dwDesiredAccess);
+
+LPVOID  CreateFiber(       SIZE_T                dwStackSize,       LPFIBER_START_ROUTINE lpStartAddress,   LPVOID                lpParameter);
+
+LPVOID  CreateFiberEx(       SIZE_T                dwStackCommitSize,       SIZE_T                dwStackReserveSize,       DWORD                 dwFlags,       LPFIBER_START_ROUTINE lpStartAddress,   LPVOID                lpParameter);
+
+HANDLE  CreateFile(       LPCTSTR               lpFileName,       DWORD                 dwDesiredAccess,       DWORD                 dwShareMode,   LPSECURITY_ATTRIBUTES lpSecurityAttributes,       DWORD                 dwCreationDisposition,       DWORD                 dwFlagsAndAttributes,   HANDLE                hTemplateFile);
+
+HANDLE  CreateFileMapping(       HANDLE                hFile,   LPSECURITY_ATTRIBUTES lpAttributes,       DWORD                 flProtect,       DWORD                 dwMaximumSizeHigh,       DWORD                 dwMaximumSizeLow,   LPCTSTR               lpName);
+
+HANDLE  CreateFileMappingNuma(       HANDLE                hFile,   LPSECURITY_ATTRIBUTES lpFileMappingAttributes,       DWORD                 flProtect,       DWORD                 dwMaximumSizeHigh,       DWORD                 dwMaximumSizeLow,   LPCTSTR               lpName,       DWORD                 nndPreferred);
+
+HFONT CreateFont(   int     nHeight,   int     nWidth,   int     nEscapement,   int     nOrientation,   int     fnWeight,   DWORD   fdwItalic,   DWORD   fdwUnderline,   DWORD   fdwStrikeOut,   DWORD   fdwCharSet,   DWORD   fdwOutputPrecision,   DWORD   fdwClipPrecision,   DWORD   fdwQuality,   DWORD   fdwPitchAndFamily,   LPCTSTR lpszFace);
+
+HFONT CreateFontIndirect(   const LOGFONT *lplf);
+
+HFONT CreateFontIndirectEx(   const ENUMLOGFONTEXDV *penumlfex);
+
+HPALETTE CreateHalftonePalette(   HDC hdc);
+
+BOOL  CreateHardLink(         LPCTSTR               lpFileName,         LPCTSTR               lpExistingFileName,  _Reserved_ LPSECURITY_ATTRIBUTES lpSecurityAttributes);
+
+HBRUSH CreateHatchBrush(   int      fnStyle,   COLORREF clrref);
+
+HDC CreateIC(         LPCTSTR lpszDriver,         LPCTSTR lpszDevice,             LPCTSTR lpszOutput,   const DEVMODE *lpdvmInit);
+
+HICON  CreateIcon(         HINSTANCE hInstance,             int       nWidth,             int       nHeight,             BYTE      cPlanes,             BYTE      cBitsPixel,       const BYTE      *lpbANDbits,       const BYTE      *lpbXORbits);
+
+HICON  CreateIconFromResource(   PBYTE presbits,   DWORD dwResSize,   BOOL  fIcon,   DWORD dwVer);
+
+HICON  CreateIconFromResourceEx(   PBYTE pbIconBits,   DWORD cbIconBits,   BOOL  fIcon,   DWORD dwVersion,   int   cxDesired,   int   cyDesired,   UINT  uFlags);
+
+HICON  CreateIconIndirect(   PICONINFO piconinfo);
+
+HANDLE  CreateIoCompletionPort(       HANDLE    FileHandle,   HANDLE    ExistingCompletionPort,       ULONG_PTR CompletionKey,       DWORD     NumberOfConcurrentThreads);
+
+HANDLE  CreateJobObject(   LPSECURITY_ATTRIBUTES lpJobAttributes,   LPCTSTR               lpName);
+
+HANDLE  CreateMailslot(       LPCTSTR               lpName,       DWORD                 nMaxMessageSize,       DWORD                 lReadTimeout,   LPSECURITY_ATTRIBUTES lpSecurityAttributes);
+
+HWND  CreateMDIWindow(       LPCTSTR   lpClassName,       LPCTSTR   lpWindowName,       DWORD     dwStyle,       int       X,       int       Y,       int       nWidth,       int       nHeight,   HWND      hWndParent,   HINSTANCE hInstance,       LPARAM    lParam);
+
+HMENU  CreateMenu(void);
+
+HDC CreateMetaFile(   LPCTSTR lpszFile);
+
+HANDLE  CreateMutex(   LPSECURITY_ATTRIBUTES lpMutexAttributes,       BOOL                  bInitialOwner,   LPCTSTR               lpName);
+
+HANDLE  CreateMutexEx(   LPSECURITY_ATTRIBUTES lpMutexAttributes,   LPCTSTR               lpName,       DWORD                 dwFlags,       DWORD                 dwDesiredAccess);
+
+HANDLE  CreateNamedPipe(       LPCTSTR               lpName,       DWORD                 dwOpenMode,       DWORD                 dwPipeMode,       DWORD                 nMaxInstances,       DWORD                 nOutBufferSize,       DWORD                 nInBufferSize,       DWORD                 nDefaultTimeOut,   LPSECURITY_ATTRIBUTES lpSecurityAttributes);
+
+    HANDLE hSession,    LPNTMS_OBJECTINFORMATION lpMedia,    LPNTMS_OBJECTINFORMATION lpList,    DWORD dwOptions);
+
+     HANDLE hSession,     LPCTSTR lpPoolName,     LPNTMS_GUID lpMediaType,     DWORD dwAction,     LPSECURITY_ATTRIBUTES lpSecurityAttributes,    LPNTMS_GUID lpPoolId);
+
+HPALETTE CreatePalette(   const LOGPALETTE *lplgpl);
+
+HBRUSH CreatePatternBrush(   HBITMAP hbmp);
+
+HPEN CreatePen(   int      fnPenStyle,   int      nWidth,   COLORREF crColor);
+
+HPEN CreatePenIndirect(   const LOGPEN *lplgpn);
+
+BOOL  CreatePipe(      PHANDLE               hReadPipe,      PHANDLE               hWritePipe,   LPSECURITY_ATTRIBUTES lpPipeAttributes,       DWORD                 nSize);
+
+HRGN CreatePolygonRgn(   const POINT *lppt,         int   cPoints,         int   fnPolyFillMode);
+
+HRGN CreatePolyPolygonRgn(   const POINT *lppt,   const INT   *lpPolyCounts,         int   nCount,         int   fnPolyFillMode);
+
+HMENU  CreatePopupMenu(void);
+
+HANDLE  CreatePrivateNamespace(   LPSECURITY_ATTRIBUTES lpPrivateNamespaceAttributes,       LPVOID                lpBoundaryDescriptor,       LPCTSTR               lpAliasPrefix);
+
+BOOL  CreateProcess(      LPCTSTR               lpApplicationName,   LPTSTR                lpCommandLine,      LPSECURITY_ATTRIBUTES lpProcessAttributes,      LPSECURITY_ATTRIBUTES lpThreadAttributes,          BOOL                  bInheritHandles,          DWORD                 dwCreationFlags,      LPVOID                lpEnvironment,      LPCTSTR               lpCurrentDirectory,          LPSTARTUPINFO         lpStartupInfo,         LPPROCESS_INFORMATION lpProcessInformation);
+
+BOOL  CreateProcessAsUser(      HANDLE                hToken,      LPCTSTR               lpApplicationName,   LPTSTR                lpCommandLine,      LPSECURITY_ATTRIBUTES lpProcessAttributes,      LPSECURITY_ATTRIBUTES lpThreadAttributes,          BOOL                  bInheritHandles,          DWORD                 dwCreationFlags,      LPVOID                lpEnvironment,      LPCTSTR               lpCurrentDirectory,          LPSTARTUPINFO         lpStartupInfo,         LPPROCESS_INFORMATION lpProcessInformation);
+
+BOOL  CreateProcessWithLogonW(          LPCWSTR               lpUsername,      LPCWSTR               lpDomain,          LPCWSTR               lpPassword,          DWORD                 dwLogonFlags,      LPCWSTR               lpApplicationName,   LPWSTR                lpCommandLine,          DWORD                 dwCreationFlags,      LPVOID                lpEnvironment,      LPCWSTR               lpCurrentDirectory,          LPSTARTUPINFOW        lpStartupInfo,         LPPROCESS_INFORMATION lpProcessInfo);
+
+BOOL  CreateProcessWithTokenW(          HANDLE                hToken,          DWORD                 dwLogonFlags,      LPCWSTR               lpApplicationName,   LPWSTR                lpCommandLine,          DWORD                 dwCreationFlags,      LPVOID                lpEnvironment,      LPCWSTR               lpCurrentDirectory,          LPSTARTUPINFOW        lpStartupInfo,         LPPROCESS_INFORMATION lpProcessInfo);
+
+HRGN CreateRectRgn(   int nLeftRect,   int nTopRect,   int nRightRect,   int nBottomRect);
+
+HRGN CreateRectRgnIndirect(   const RECT *lprc);
+
+HANDLE  CreateRemoteThread(    HANDLE                 hProcess,    LPSECURITY_ATTRIBUTES  lpThreadAttributes,    SIZE_T                 dwStackSize,    LPTHREAD_START_ROUTINE lpStartAddress,    LPVOID                 lpParameter,    DWORD                  dwCreationFlags,   LPDWORD                lpThreadId);
+
+HRGN CreateRoundRectRgn(   int nLeftRect,   int nTopRect,   int nRightRect,   int nBottomRect,   int nWidthEllipse,   int nHeightEllipse);
+
+BOOL CreateScalableFontResource(   DWORD   fdwHidden,   LPCTSTR lpszFontRes,   LPCTSTR lpszFontFile,   LPCTSTR lpszCurrentPath);
+
+HANDLE  CreateSemaphore(   LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,       LONG                  lInitialCount,       LONG                  lMaximumCount,   LPCTSTR               lpName);
+
+HANDLE  CreateSemaphoreEx(     LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,         LONG                  lInitialCount,         LONG                  lMaximumCount,     LPCTSTR               lpName,  _Reserved_ DWORD                 dwFlags,         DWORD                 dwDesiredAccess);
+
+SC_HANDLE  CreateService(        SC_HANDLE hSCManager,        LPCTSTR   lpServiceName,    LPCTSTR   lpDisplayName,        DWORD     dwDesiredAccess,        DWORD     dwServiceType,        DWORD     dwStartType,        DWORD     dwErrorControl,    LPCTSTR   lpBinaryPathName,    LPCTSTR   lpLoadOrderGroup,   LPDWORD   lpdwTagId,    LPCTSTR   lpDependencies,    LPCTSTR   lpServiceStartName,    LPCTSTR   lpPassword);
+
+HBRUSH CreateSolidBrush(   COLORREF crColor);
+
+BOOLEAN  CreateSymbolicLink(   LPTSTR lpSymlinkFileName,   LPTSTR lpTargetFileName,   DWORD  dwFlags);
+
+DWORD CreateTapePartition(   HANDLE hDevice,   DWORD  dwPartitionMethod,   DWORD  dwCount,   DWORD  dwSize);
+
+HANDLE  CreateThread(    LPSECURITY_ATTRIBUTES  lpThreadAttributes,        SIZE_T                 dwStackSize,        LPTHREAD_START_ROUTINE lpStartAddress,    LPVOID                 lpParameter,        DWORD                  dwCreationFlags,   LPDWORD                lpThreadId);
+
+PTP_POOL  CreateThreadpool(  _Reserved_ PVOID reserved);
+
+PTP_CLEANUP_GROUP  CreateThreadpoolCleanupGroup(void);
+
+PTP_IO  CreateThreadpoolIo(          HANDLE                fl,          PTP_WIN32_IO_CALLBACK pfnio,   PVOID                 pv,      PTP_CALLBACK_ENVIRON  pcbe);
+
+PTP_TIMER  CreateThreadpoolTimer(          PTP_TIMER_CALLBACK   pfnti,   PVOID                pv,      PTP_CALLBACK_ENVIRON pcbe);
+
+PTP_WAIT  CreateThreadpoolWait(          PTP_WAIT_CALLBACK    pfnwa,   PVOID                pv,      PTP_CALLBACK_ENVIRON pcbe);
+
+PTP_WORK  CreateThreadpoolWork(          PTP_WORK_CALLBACK    pfnwk,   PVOID                pv,      PTP_CALLBACK_ENVIRON pcbe);
+
+HANDLE  CreateTimerQueue(void);
+
+BOOL  CreateTimerQueueTimer(      PHANDLE             phNewTimer,   HANDLE              TimerQueue,       WAITORTIMERCALLBACK Callback,   PVOID               Parameter,       DWORD               DueTime,       DWORD               Period,       ULONG               Flags);
+
+HANDLE  CreateToolhelp32Snapshot(   DWORD dwFlags,   DWORD th32ProcessID);
+
+ULONG CreateTraceInstanceId(    HANDLE               RegHandle,   PEVENT_INSTANCE_INFO pInstInfo);
+
+HANDLE  CreateWaitableTimer(   LPSECURITY_ATTRIBUTES lpTimerAttributes,       BOOL                  bManualReset,   LPCTSTR               lpTimerName);
+
+HANDLE  CreateWaitableTimerEx(   LPSECURITY_ATTRIBUTES lpTimerAttributes,   LPCTSTR               lpTimerName,       DWORD                 dwFlags,       DWORD                 dwDesiredAccess);
+
+HWND  CreateWindow(   LPCTSTR   lpClassName,   LPCTSTR   lpWindowName,       DWORD     dwStyle,       int       x,       int       y,       int       nWidth,       int       nHeight,   HWND      hWndParent,   HMENU     hMenu,   HINSTANCE hInstance,   LPVOID    lpParam);
+
+HWND  CreateWindowEx(       DWORD     dwExStyle,   LPCTSTR   lpClassName,   LPCTSTR   lpWindowName,       DWORD     dwStyle,       int       x,       int       y,       int       nWidth,       int       nHeight,   HWND      hWndParent,   HMENU     hMenu,   HINSTANCE hInstance,   LPVOID    lpParam);
+
+HWINSTA  CreateWindowStation(   LPCTSTR               lpwinsta,           DWORD                 dwFlags,       ACCESS_MASK           dwDesiredAccess,   LPSECURITY_ATTRIBUTES lpsa);
+
+BOOL  DdeAbandonTransaction(   DWORD idInst,   HCONV hConv,   DWORD idTransaction);
+
+LPBYTE  DdeAccessData(        HDDEDATA hData,   LPDWORD  pcbDataSize);
+
+HDDEDATA  DdeAddData(   HDDEDATA hData,   LPBYTE   pSrc,   DWORD    cb,   DWORD    cbOff);
+
+HDDEDATA CALLBACK DdeCallback(   UINT      uType,   UINT      uFmt,   HCONV     hconv,   HSZ       hsz1,   HSZ       hsz2,   HDDEDATA  hdata,   ULONG_PTR dwData1,   ULONG_PTR dwData2);
+
+HDDEDATA  DdeClientTransaction(    LPBYTE  pData,        DWORD   cbData,        HCONV   hConv,    HSZ     hszItem,        UINT    wFmt,        UINT    wType,        DWORD   dwTimeout,   LPDWORD pdwResult);
+
+int  DdeCmpStringHandles(   HSZ hsz1,   HSZ hsz2);
+
+HCONV  DdeConnect(       DWORD        idInst,       HSZ          hszService,       HSZ          hszTopic,   PCONVCONTEXT pCC);
+
+HCONVLIST  DdeConnectList(       DWORD        idInst,       HSZ          hszService,       HSZ          hszTopic,       HCONVLIST    hConvList,   PCONVCONTEXT pCC);
+
+HDDEDATA  DdeCreateDataHandle(       DWORD  idInst,   LPBYTE pSrc,       DWORD  cb,       DWORD  cbOff,   HSZ    hszItem,       UINT   wFmt,       UINT   afCmd);
+
+HSZ  DdeCreateStringHandle(   DWORD  idInst,   LPTSTR psz,   int    iCodePage);
+
+BOOL  DdeDisconnect(   HCONV hConv);
+
+BOOL  DdeDisconnectList(   HCONVLIST hConvList);
+
+BOOL  DdeEnableCallback(   DWORD idInst,   HCONV hConv,   UINT  wCmd);
+
+BOOL  DdeFreeDataHandle(   HDDEDATA hData);
+
+BOOL  DdeFreeStringHandle(   DWORD idInst,   HSZ   hsz);
+
+DWORD  DdeGetData(        HDDEDATA hData,   LPBYTE   pDst,        DWORD    cbMax,        DWORD    cbOff);
+
+UINT  DdeGetLastError(   DWORD idInst);
+
+BOOL  DdeImpersonateClient(   HCONV hConv);
+
+UINT  DdeInitialize(      LPDWORD     pidInst,         PFNCALLBACK pfnCallback,         DWORD       afCmd,  _Reserved_ DWORD       ulRes);
+
+BOOL  DdeKeepStringHandle(   DW

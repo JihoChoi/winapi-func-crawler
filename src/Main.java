@@ -1,10 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +9,7 @@ import java.util.List;
  * Ref
     https://www.youtube.com/watch?v=OuPjoiXq9gg
  */
+
 public class Main {
 
 //  Target URL: http://www.win32-api.narod.ru/
@@ -21,38 +18,34 @@ public class Main {
 
         // Retrieve Target URLS
 
-//        WinURLParser up = new WinURLParser();
-//        List<String> URLs = up.parse();
+    /*
+        WinURLParser up = new WinURLParser();
+        List<String> URLs = up.parse();
 
-        // TODOs MSDN URL File IO
+        FileWriter writer = new FileWriter("./msdn_urls.txt");
+        for(String url: URLs) {
+            writer.write(url + "\r\n");
+        }
 
-//        FileWriter writer = new FileWriter("./msdn_urls.txt");
-//        for(String url: URLs) {
-//            writer.write(url + "\r\n");
-//        }
-//        writer.close();
+        writer.close();
+    */
 
         List<String> URLs = new ArrayList<>();
 
-        BufferedReader br = null;
-        FileReader fr = null;
+        FileReader fr = new FileReader("./msdn_urls.txt");
+        BufferedReader br = new BufferedReader(fr);
+        // br = new BufferedReader(new FileReader("./msdn_urls.txt"));
 
-        fr = new FileReader("./msdn_urls.txt");
-        br = new BufferedReader(fr);
-
-        String sCurrentLine;
-
-        br = new BufferedReader(new FileReader("./msdn_urls.txt"));
+        String currentLine;
 
         int num = 0;
-        while ((sCurrentLine = br.readLine()) != null) {
-            System.out.println(num + ": " + sCurrentLine);
+        while ((currentLine = br.readLine()) != null) {
+            System.out.println(num + ": " + currentLine);
             num++;
-            URLs.add(sCurrentLine);
+            URLs.add(currentLine);
         }
 
         WinFuncParser fp = new WinFuncParser();
-
         FileWriter fw = new FileWriter("./Output.txt");
 
         int i = 0;
@@ -64,6 +57,9 @@ public class Main {
 
             // This line is for skipping the existing functions
 //            if (i++ < 44) { continue; }
+
+
+//          skip removed num, 112
 
             i++;
 

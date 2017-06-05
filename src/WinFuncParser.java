@@ -12,6 +12,9 @@ public class WinFuncParser {
 
     public WinFuncParser() {
 
+        System.out.println("Function Parser is to retrieve functions from the MSDN Page.");
+        System.out.println("");
+
     }
 
     public String parse(String target) throws Exception {
