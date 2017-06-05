@@ -32,7 +32,6 @@ public class Main {
 //        }
 //        writer.close();
 
-
         List<String> URLs = new ArrayList<>();
 
         BufferedReader br = null;
@@ -52,9 +51,6 @@ public class Main {
             URLs.add(sCurrentLine);
         }
 
-
-
-
         WinFuncParser fp = new WinFuncParser();
 
         FileWriter fw = new FileWriter("./Output.txt");
@@ -69,7 +65,6 @@ public class Main {
             // This line is for skipping the existing functions
 //            if (i++ < 44) { continue; }
 
-
             i++;
 
             System.out.println("#" + i);
@@ -77,33 +72,22 @@ public class Main {
 
             String str = fp.parse(url);
 
-
             str = str.replace("_IN_", "");
             str = str.replace("_In_", "");
             str = str.replace("__in", "");
-            str = str.replace("_In_", "");
 
             str = str.replace("_Out_", "");
             str = str.replace("__out", "");
-            str = str.replace("_In_", "");
-
 
             str = str.replace("_Inout_", "");
+
             str = str.replace("opt_", ""); // this method is to remove _In_opt_
 
-
+            /* CSS Tag removal */
 
             str = str.replace("<span style=\"color:Blue;\">", "");
             str = str.replace("</span>", "");
-
-
-
-
             str = str.replace("WINAPI", "");
-
-
-
-
 
             System.out.println("FUNC : " + str + "\n");
 

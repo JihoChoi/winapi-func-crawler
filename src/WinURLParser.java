@@ -22,7 +22,6 @@ public class WinURLParser {
 
     }
 
-
     public List<String> parse() throws Exception {
 
         List<String> msdnURLs = new ArrayList<>();
@@ -50,8 +49,6 @@ public class WinURLParser {
                 // if ( i == 4 ) break;
 
                 // Todos: change WIN parameter to c++ parameter
-
-
 
             }
         }

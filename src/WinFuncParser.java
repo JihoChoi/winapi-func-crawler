@@ -10,7 +10,6 @@ import java.net.URL;
  */
 public class WinFuncParser {
 
-
     public WinFuncParser() {
 
     }
@@ -37,11 +36,8 @@ public class WinFuncParser {
                 System.out.println("ORG  : " + str);
 
                 break;
-
                 // todo handle parameter
-
                 // ex) if contains DWORD -> swap to unsigned int
-
             }
         }
         conn.disconnect();
