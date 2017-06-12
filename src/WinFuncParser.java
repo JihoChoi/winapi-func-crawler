@@ -37,7 +37,6 @@ public class WinFuncParser {
                     line = br.readLine();
                 }
 
-
                 while (line.contains("</pre>") == false) {
 
                     str += line;
