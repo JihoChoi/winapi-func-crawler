@@ -30,15 +30,30 @@ public class WinFuncParser {
         while ((line = br.readLine()) != null) {
 
             if (line.contains("<pre>")) {
-                br.readLine();
+                line = br.readLine();
 
-                while ((line = br.readLine()).contains("</pre>") == false) {
+                if (line.isEmpty()) {
+                    System.out.println("Current line is empty!");
+                    line = br.readLine();
+                }
+
+
+                while (line.contains("</pre>") == false) {
+
                     str += line;
-                    // todo some options to change raw function
+                    line = br.readLine();
                 }
                 System.out.println("ORG  : " + str);
 
                 break;
+
+
+//                while ((line = br.readLine()).contains("</pre>") == false) {
+//                    str += line;
+//                    // todo some options to change raw function
+//                }
+
+//                break;
                 // todo handle parameter
                 // ex) if contains DWORD -> swap to unsigned int
             }

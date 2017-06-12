@@ -56,12 +56,11 @@ public class Main {
             }
 
             // This line is for skipping the existing functions
-//            if (i++ < 44) { continue; }
+            if (i++ < 11) { continue; }
 
 
 //          skip removed num, 112
-
-            i++;
+//            i++;
 
             System.out.println("#" + i);
             System.out.println("URL  : " + url);
