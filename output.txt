@@ -1,0 +1,92 @@
+DWORD EjectDiskFromSADrive(LPCWSTR lpComputerName, LPCWSTR lpAppName, LPCWSTR lpDeviceName, HWND hWnd, LPCWSTR lpTitle, LPCWSTR  lpMessage, DWORD  dwOptions){}
+DWORD EjectNtmsCleaner(HANDLE hSession, LPNTMS_GUID lpLibrary, outLPNTMS_GUID lpEjectOperation, DWORD dwAction){}
+DWORD EjectNtmsMedia(HANDLE hSession, LPNTMS_GUID lpMediaId, outLPNTMS_GUID lpEjectOperation, DWORD dwAction){}
+BOOL Ellipse(HDC hdc, int nLeftRect, int nTopRect, int nRightRect, int nBottomRect){}
+BOOL EmptyClipboard(void){}
+BOOL EmptyWorkingSet(HANDLE hProcess){}
+BOOL EnableMenuItem(HMENU hMenu, UINT uIDEnableItem, UINT uEnable){}
+DWORD EnableNtmsObject(HANDLE hSession, DWORD dwType, LPNTMS_GUID lpObjectId){}
+BOOL EnableScrollBar(HWND hWnd, UINT wSBflags, UINT wArrows){}
+ULONG EnableTrace(ULONG Enable, ULONG EnableFlag, ULONG EnableLevel, LPCGUID ControlGuid, TRACEHANDLE SessionHandle){}
+BOOL EnableWindow(HWND hWnd, BOOL bEnable){}
+BOOL EncryptFile(LPCTSTR lpFileName){}
+BOOL EncryptionDisable(LPCWSTR DirPath, BOOL Disable){}
+BOOL EndDeferWindowPos(HDWP hWinPosInfo){}
+int EndDoc(HDC hdc){}
+BOOL EndDocPrinter(HANDLE hPrinter){}
+BOOL EndMenu(void){}
+DWORD EndNtmsDeviceChangeDetection(HANDLE hSession, HANDLE hDetectHandle){}
+int EndPage(HDC hdc){}
+BOOL EndPagePrinter(HANDLE hPrinter){}
+BOOL EndPaint(HWND hWnd,  PAINTSTRUCT *lpPaint){}
+BOOL EndPath(HDC hdc){}
+BOOL EndTask(HWND hWnd, BOOL fShutDown, BOOL fForce){}
+BOOL EndUpdateResource(HANDLE hUpdate, BOOL fDiscard){}
+int  EnhMetaFileProc(HDC hDC, HANDLETABLE *lpHTable,  ENHMETARECORD *lpEMFR, int nObj, LPARAM lpData){}
+void EnterCriticalSection(LPCRITICAL_SECTION lpCriticalSection){}
+BOOL EnumCalendarInfo(CALINFO_ENUMPROC pCalInfoEnumProc, LCID Locale, CALID Calendar, CALTYPE CalType){}
+BOOL EnumCalendarInfoEx(CALINFO_ENUMPROCEX pCalInfoEnumProcEx, LCID Locale, CALID Calendar, CALTYPE CalType){}
+BOOL  EnumCalendarInfoProc(LPTSTR lpCalendarInfoString){}
+BOOL  EnumCalendarInfoProcEx(LPTSTR lpCalendarInfoString, CALID Calendar){}
+BOOL  EnumChildProc(HWND hwnd, LPARAM lParam){}
+BOOL EnumChildWindows(HWND hWndParent, WNDENUMPROC lpEnumFunc, LPARAM lParam){}
+UINT EnumClipboardFormats(UINT format){}
+BOOL  EnumCodePagesProc(LPTSTR lpCodePageString){}
+BOOL EnumDateFormats(DATEFMT_ENUMPROC lpDateFmtEnumProc, LCID Locale, DWORD dwFlags){}
+BOOL EnumDateFormatsEx(DATEFMT_ENUMPROCEX lpDateFmtEnumProcEx, LCID Locale, DWORD dwFlags){}
+BOOL  EnumDateFormatsProc(LPTSTR lpDateFormatString){}
+BOOL  EnumDateFormatsProcEx(LPTSTR lpDateFormatString, CALID CalendarID){}
+BOOL EnumDependentServices(SC_HANDLE hService, DWORD dwServiceState, LPENUM_SERVICE_STATUS lpServices, DWORD cbBufSize, LPDWORD pcbBytesNeeded, LPDWORD lpServicesReturned){}
+BOOL  EnumDesktopProc(LPTSTR lpszDesktop, LPARAM lParam){}
+BOOL EnumDesktops(HWINSTA hwinsta, DESKTOPENUMPROC lpEnumFunc, LPARAM lParam){}
+BOOL EnumDesktopWindows(HDESK hDesktop, WNDENUMPROC lpfn, LPARAM lParam){}
+BOOL EnumDeviceDrivers(LPVOID *lpImageBase, DWORD cb, LPDWORD lpcbNeeded){}
+BOOL EnumDisplayDevices(LPCTSTR lpDevice, DWORD iDevNum, PDISPLAY_DEVICE lpDisplayDevice, DWORD dwFlags){}
+BOOL EnumDisplayMonitors(HDC hdc, LPCRECT lprcClip, MONITORENUMPROC lpfnEnum, LPARAM dwData){}
+BOOL EnumDisplaySettings(LPCTSTR lpszDeviceName, DWORD iModeNum, DEVMODE *lpDevMode){}
+BOOL EnumDisplaySettingsEx(LPCTSTR lpszDeviceName, DWORD iModeNum, DEVMODE *lpDevMode, DWORD dwFlags){}
+BOOL EnumEnhMetaFile(HDC hdc, HENHMETAFILE hemf, ENHMFENUMPROC lpEnhMetaFunc, LPVOID lpData,  RECT *lpRect){}
+DWORD EnumerateNtmsObject(HANDLE hSession, LPNTMS_GUID lpContainerId, LPNTMS_GUID lpList, outLPDWORD lpdwListSize, DWORD dwType, DWORD dwOptions){}
+ULONG EnumerateTraceGuids(PTRACE_GUID_PROPERTIES *GuidPropertiesArray, ULONG PropertyArrayCount, PULONG GuidCount){}
+int  EnumFontFamExProc( LOGFONT *lpelfe,  TEXTMETRIC *lpntme, DWORD FontType, LPARAM lParam){}
+int EnumFontFamilies(HDC hdc, LPCTSTR lpszFamily, FONTENUMPROC lpEnumFontFamProc, LPARAM lParam){}
+int EnumFontFamiliesEx(HDC hdc, LPLOGFONT lpLogfont, FONTENUMPROC lpEnumFontFamExProc, LPARAM lParam, DWORD dwFlags){}
+int  EnumFontFamProc(ENUMLOGFONT *lpelf, NEWTEXTMETRIC *lpntm, DWORD FontType, LPARAM lParam){}
+int EnumFonts(HDC hdc, LPCTSTR lpFaceName, FONTENUMPROC lpFontFunc, LPARAM lParam){}
+int  EnumFontsProc( LOGFONT *lplf,  TEXTMETRIC *lptm, DWORD dwType, LPARAM lpData){}
+BOOL EnumForms(HANDLE hPrinter, DWORD Level, LPBYTE pForm, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+BOOL  EnumGeoInfoProc(GEOID GeoId){}
+BOOL  EnumInputContext(HIMC hIMC, LPARAM lParam){}
+BOOL EnumJobs(HANDLE hPrinter, DWORD FirstJob, DWORD NoJobs, DWORD Level, LPBYTE pJob, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+BOOL EnumLanguageGroupLocales(LANGGROUPLOCALE_ENUMPROC lpLangGroupLocaleEnumProc, LGRPID LanguageGroup, DWORD dwFlags, LONG_PTR lParam){}
+BOOL  EnumLanguageGroupLocalesProc(LGRPID LanguageGroup, LCID Locale, LPTSTR lpLocaleString, LONG_PTR lParam){}
+BOOL  EnumLanguageGroupsProc(LGRPID LanguageGroup, LPTSTR lpLanguageGroupString, LPTSTR lpLanguageGroupNameString, DWORD dwFlags, LONG_PTR lParam){}
+BOOL  EnumLocalesProc(LPTSTR lpLocaleString){}
+BOOL EnumMetaFile(HDC hdc, HMETAFILE hmf, MFENUMPROC lpMetaFunc, LPARAM lParam){}
+int  EnumMetaFileProc(HDC hDC, HANDLETABLE *lpHTable, METARECORD *lpMFR, int nObj, LPARAM lpClientData){}
+BOOL EnumMonitors(LPTSTR pName, DWORD Level, LPBYTE pMonitors, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+int EnumObjects(HDC hdc, int nObjectType, GOBJENUMPROC lpObjectFunc, LPARAM lParam){}
+int  EnumObjectsProc(LPVOID lpLogObject, LPARAM lpData){}
+BOOL EnumPageFiles(PENUM_PAGE_ pCallbackRoutine, LPVOID lpContext){}
+BOOL EnumPorts(LPTSTR pName, DWORD Level, LPBYTE pPorts, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+DWORD EnumPrinterData(HANDLE hPrinter, DWORD dwIndex, LPTSTR pValueName, DWORD cbValueName, LPDWORD pcbValueName, LPDWORD pType, LPBYTE pData, DWORD cbData, LPDWORD pcbData){}
+DWORD EnumPrinterDataEx(HANDLE hPrinter, LPCTSTR pKeyName, LPBYTE pEnumValues, DWORD cbEnumValues, LPDWORD pcbEnumValues, LPDWORD pnEnumValues){}
+BOOL EnumPrinterDrivers(LPTSTR pName, LPTSTR pEnvironment, DWORD Level, LPBYTE pDriverInfo, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+DWORD EnumPrinterKey(HANDLE hPrinter, LPCTSTR pKeyName, LPTSTR pSubkey, DWORD cbSubkey, LPDWORD pcbSubkey){}
+BOOL EnumPrinters(DWORD Flags, LPTSTR Name, DWORD Level, LPBYTE pPrinterEnum, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+BOOL EnumPrintProcessorDatatypes(LPTSTR pName, LPTSTR pPrintProcessorName, DWORD Level, LPBYTE pDatatypes, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+BOOL EnumPrintProcessors(LPTSTR pName, LPTSTR pEnvironment, DWORD Level, LPBYTE pPrintProcessorInfo, DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned){}
+BOOL EnumProcesses(DWORD *pProcessIds, DWORD cb, DWORD *pBytesReturned){}
+BOOL EnumProcessModules(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded){}
+BOOL EnumProcessModulesEx(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded, DWORD dwFilterFlag){}
+int EnumProps(HWND hWnd, PROPENUMPROC lpEnumFunc){}
+int EnumPropsEx(HWND hWnd, PROPENUMPROCEX lpEnumFunc, LPARAM lParam){}
+BOOLEAN EnumPwrSchemes(PWRSCHEMESENUMPROC lpfnPwrSchemesEnumProc, LPARAM lParam){}
+INT  EnumRegisterWordProc(LPCTSTR lpszReading, DWORD dwStyle, LPCTSTR lpszString, LPVOID lpData){}
+BOOL  EnumResLangProc(HMODULE hModule, LPCTSTR lpszType, LPCTSTR lpszName, WORD wIDLanguage, LONG_PTR lParam){}
+BOOL  EnumResNameProc(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam){}
+BOOL EnumResourceLanguages(HMODULE hModule, LPCTSTR lpType, LPCTSTR lpName, ENUMRESLANGPROC lpEnumFunc, LONG_PTR lParam){}
+BOOL EnumResourceNames(HMODULE hModule, LPCTSTR lpszType, ENUMRESNAMEPROC lpEnumFunc, LONG_PTR lParam){}
+BOOL EnumResourceTypes(HMODULE hModule, ENUMRESTYPEPROC lpEnumFunc, LONG_PTR lParam){}
+BOOL  EnumResTypeProc(HMODULE hModule, LPTSTR lpszType, LONG_PTR lParam){}
+BOOL EnumServicesStatus(SC_HANDLE hSCManager, DWORD dwServiceType, DWORD dwServiceState, LPENUM_SERVICE_STATUS lpServices, DWORD cbBufSize, LPDWORD pcbBytesNe

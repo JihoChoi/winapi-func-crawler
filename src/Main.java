@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.lang.String;
+
 /**
  * Created by Jiho on 2017. 6. 1..
  * Ref
@@ -56,8 +58,7 @@ public class Main {
             }
 
             // This line is for skipping the existing functions
-            if (i++ < 11) { continue; }
-
+            if (i++ < 405) { continue; }
 
 //          skip removed num, 112
 //            i++;
@@ -80,17 +81,47 @@ public class Main {
 
             /* CSS Tag removal */
 
+//            _Reserved_
+//            _Reserved_
+
             str = str.replace("<span style=\"color:Blue;\">", "");
             str = str.replace("</span>", "");
             str = str.replace("WINAPI", "");
 
+            str = str.replace("_Inout_", "");
+
+
+            str = str.replaceAll("&nbsp;", "");
+            str = str.replaceAll(String.valueOf((char)160), "");
+
+            str = str.replaceAll("  ", " ");
+
+
+            str = str.replaceAll("CALLBACK ", "");
+            str = str.replaceAll("const", "");
+
+            str = str.replaceAll("\\( ", "\\(");
+
+
+            str = str.trim();
+
+            str = str.substring(0, str.length() - 1);
+
+            str = str + "{}";
+
+
+//            str = str.trim().replaceAll("\\s{2,}", " ").trim();;
+//            str = str.replace("\t", "");
+
+
             System.out.println("FUNC : " + str + "\n");
+
 
 //            fw.write("URL  : " + url + "\r\n");
 //            fw.write("FUNC : " + str + "\r\n");
 
             fw.write(str + "\r\n");
-            fw.write("\r\n");
+//            fw.write("\r\n");
 
             // todo file io
         }
