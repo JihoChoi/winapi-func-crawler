@@ -33,7 +33,7 @@ public class WinFuncParser {
                 line = br.readLine();
 
                 if (line.isEmpty()) {
-                    System.out.println("Current line is empty!");
+//                    System.out.println("Current line is empty!");
                     line = br.readLine();
                 }
 
@@ -42,16 +42,14 @@ public class WinFuncParser {
                     str += line;
                     line = br.readLine();
                 }
-                System.out.println("ORG  : " + str);
+//                System.out.println("ORG  : " + str);
 
                 break;
-
 
 //                while ((line = br.readLine()).contains("</pre>") == false) {
 //                    str += line;
 //                    // todo some options to change raw function
 //                }
-
 //                break;
                 // todo handle parameter
                 // ex) if contains DWORD -> swap to unsigned int
