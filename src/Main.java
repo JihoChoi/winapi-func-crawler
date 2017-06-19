@@ -17,26 +17,19 @@ import java.lang.String;
 public class Main {
 
 //  Target URL: http://www.win32-api.narod.ru/
-
+	/*public static String addKeyword(String str1, String word){
+		if (str1.contains(word)){
+			return "//" + word;
+		}
+		else {
+			return "";
+		}
+	}*/
     public static void main(String[] args) throws Exception {
 
         // Retrieve Target URLS
-
-    /*
-        WinURLParser up = new WinURLParser();
-        List<String> URLs = up.parse();
-
-        // Retrieve MSDN URLs and write to file.
-
-        FileWriter writer = new FileWriter("./msdn_urls.txt");
-        for(String url: URLs) {
-            writer.write(url + "\r\n");
-        }
-        writer.close();
-    */
-
-        List<String> URLs = new ArrayList<>();
-
+        List<String> URLs = new ArrayList<>();     
+        
         FileReader fr = new FileReader("./msdn_urls.txt");
         BufferedReader br = new BufferedReader(fr);
 
@@ -44,7 +37,6 @@ public class Main {
 
         int num = 0;
         while ((currentLine = br.readLine()) != null) {
-//            System.out.println(num + ": " + currentLine);
             num++;
             URLs.add(currentLine);
         }
@@ -74,7 +66,7 @@ public class Main {
 //        System.out.println(sWhatever);
 
 
-        int index = 626; // Index
+        int index = 701; // Index
 
         for (String url : URLs) {
 
@@ -85,44 +77,17 @@ public class Main {
             // This line is for skipping the existing functions
 
             if (i++ < index - 2) { continue; }
-
-
-
-
-
-//            if (i > 502) {
-//                break;
-//            }
-
-//          skip removed num, 112
-//            i++;
-
-//            System.out.println("#" + i);
-//            System.out.println("URL  : " + url);
-
+            
+            if (i > 801) break;
+            
             String str = funcParser.parse(url);
-
-
-
-
             str = str.replace("_IN_", "");
             str = str.replace("_In_", "");
             str = str.replace("__in", "");
-
             str = str.replace("_Out_", "");
             str = str.replace("__out", "");
-
             str = str.replace("_Inout_", "");
-
             str = str.replace("opt_", ""); // this method is to remove _In_opt_
-
-            /* CSS Tag removal */
-
-//            _Reserved_
-//            _Reserved_
-
-            // TODOs 이 부분 분리
-
             str = str.replace("<span style=\"color:Blue;\">", "");
             str = str.replace("</span>", "");
             str = str.replace("WINAPI", "");
@@ -139,30 +104,51 @@ public class Main {
             str = str.replaceAll("\\( ", "\\(");
             str = str.trim();
 
-            str = str.substring(0, str.length() - 1);
-
-            str = str + "{}";
-
-
-//            str = str.trim().replaceAll("\\s{2,}", " ").trim();;
-//            str = str.replace("\t", "");
-
-
-//            System.out.println("FUNC : " + str + "\n");
+            /*if (str.length() != 0){
+            	str = str.substring(0, str.length() - 1);
+            }*/
+            str = str.replaceAll(";", "");
+            
+            
+            str = str + "{//";
+            //str += addKeyword(str, "Buffer");
+            //str += addKeyword(str, "allocate");
+            
+            if (str.contains("uffer")){
+            	str = str.replaceAll("uffer", "");
+            	str += "Buffer, ";
+            }
+            if (str.contains("allocate")){
+            	str = str.replaceAll("allocate", "");
+            	str += "allocate, ";
+            }
+            if (str.contains("dynamic")){
+            	str = str.replaceAll("dynamic", "");
+            	str += "dynamic, ";
+            }
+            if (str.contains("must")){
+            	str = str.replaceAll("must", "");
+            	str += "must, ";
+            }
+            if (str.contains("handle")){
+            	str = str.replaceAll("handle", "");
+            	str += "handle, ";
+            }
+            if (str.contains("one of the following")){
+            	str = str.replaceAll("one of the following", "");
+            	str += "one of the following, ";
+            }
+            
+            
+            str = str + "}";
+            
             System.out.println(str);
-
-
-//            fw.write("URL  : " + url + "\r\n");
-//            fw.write("FUNC : " + str + "\r\n");
-
             fw.write(str + "\r\n");
-            fw.write("\r\n");
+            //fw.write("\r\n");
 
         }
 
         fw.close();
-
-
     }
 
 }

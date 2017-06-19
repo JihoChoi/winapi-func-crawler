@@ -11,12 +11,22 @@ import java.net.URL;
 public class WinFuncParser {
 
     public WinFuncParser() {
-
         System.out.println("Function Parser is to retrieve functions from the MSDN Page.");
         System.out.println("");
-
+    }
+    public String addWord(String line, String str1, String keyword){
+    	if (line.contains(keyword)){
+    		if (!str1.contains(keyword))
+    			return keyword;
+    		else
+    			return "";
+    	}
+    	else {
+    		return "";
+    	}
     }
 
+	
     public String parse(String target) throws Exception {
 
 //        System.out.println("Target: " + target);
@@ -43,16 +53,23 @@ public class WinFuncParser {
                     line = br.readLine();
                 }
 //                System.out.println("ORG  : " + str);
-
-                break;
-
-//                while ((line = br.readLine()).contains("</pre>") == false) {
-//                    str += line;
-//                    // todo some options to change raw function
-//                }
-//                break;
-                // todo handle parameter
-                // ex) if contains DWORD -> swap to unsigned int
+            }
+            if (line.contains("Parameters")){
+            	line = br.readLine();
+            	
+            	while (line.contains("See also") == false && line.contains("See Also") == false){
+            		str += addWord(line, str, "uffer ");
+            		str += addWord(line, str, "allocate ");
+            		str += addWord(line, str, "dynamic ");
+            		str += addWord(line, str, "must ");
+            		str += addWord(line, str, "handle ");
+            		str += addWord(line, str, "one of the following ");
+            		//str += addWord(line, str, "");
+            		line = br.readLine();
+            	}
+            	
+            	System.out.println("ORG  : " + str);
+            	break;
             }
         }
         conn.disconnect();
