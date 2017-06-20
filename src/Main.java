@@ -6,17 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.lang.String;
 
+
 /*
  *
+ * Created by Jiho, Eric, Vanessa on 2017. 6. 1..
  *
- * Created by Jiho on 2017. 6. 1..
  * References
     https://www.youtube.com/watch?v=OuPjoiXq9gg
  */
 
 public class Main {
 
-//  Target URL: http://www.win32-api.narod.ru/
+    //  Target URL: http://www.win32-api.narod.ru/
 
     public static void main(String[] args) throws Exception {
 
@@ -69,7 +70,6 @@ public class Main {
 
 //        Scanner scanIn = new Scanner(System.in);
 //        sWhatever = scanIn.nextLine();
-//
 //        scanIn.close();
 //        System.out.println(sWhatever);
 
@@ -82,23 +82,9 @@ public class Main {
                 continue;
             }
 
-            // This line is for skipping the existing functions
-
+            // This line is to skip the existing functions
             if (i++ < index - 2) { continue; }
 
-
-
-
-
-//            if (i > 502) {
-//                break;
-//            }
-
-//          skip removed num, 112
-//            i++;
-
-//            System.out.println("#" + i);
-//            System.out.println("URL  : " + url);
 
             String str = funcParser.parse(url);
 
@@ -132,7 +118,6 @@ public class Main {
             str = str.replaceAll(String.valueOf((char)160), "");
 
             str = str.replaceAll("  ", " ");
-
 
             str = str.replaceAll("CALLBACK ", "");
             str = str.replaceAll("const", "");

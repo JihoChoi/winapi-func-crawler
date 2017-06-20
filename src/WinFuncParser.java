@@ -7,19 +7,22 @@ import java.net.URL;
 
 /**
  * Created by Jiho on 2017. 6. 1..
+ *
+ *
+ *
  */
 public class WinFuncParser {
 
     public WinFuncParser() {
-
-        System.out.println("Function Parser is to retrieve functions from the MSDN Page.");
+        System.out.println("=========================================================================");
+        System.out.println("Function Parser is to retrieve the function from the WinAPI MSDN Page.");
+        System.out.println("=========================================================================");
         System.out.println("");
-
     }
 
-    public String parse(String target) throws Exception {
+    /* Connect the URL and retrieve the markup as string buffer */
 
-//        System.out.println("Target: " + target);
+    public String parse(String target) throws Exception {
 
         HttpURLConnection conn = (HttpURLConnection) new URL(target).openConnection();
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
@@ -33,7 +36,6 @@ public class WinFuncParser {
                 line = br.readLine();
 
                 if (line.isEmpty()) {
-//                    System.out.println("Current line is empty!");
                     line = br.readLine();
                 }
 
@@ -42,13 +44,13 @@ public class WinFuncParser {
                     str += line;
                     line = br.readLine();
                 }
-//                System.out.println("ORG  : " + str);
+                System.out.println("ORG  : " + str);
 
                 break;
 
 //                while ((line = br.readLine()).contains("</pre>") == false) {
 //                    str += line;
-//                    // todo some options to change raw function
+//                    // TODO some options to change raw function
 //                }
 //                break;
                 // todo handle parameter
