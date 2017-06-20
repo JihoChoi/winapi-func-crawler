@@ -37,6 +37,8 @@ public class WinFuncParser {
         String str = "";
         String line;
 
+        int hasFunc = 0;
+        
         while ((line = br.readLine()) != null) {
 
             if (line.contains("<pre>")) {
@@ -48,27 +50,35 @@ public class WinFuncParser {
                 }
 
                 while (line.contains("</pre>") == false) {
-
                     str += line;
                     line = br.readLine();
                 }
-//                System.out.println("ORG  : " + str);
+                hasFunc = 1;
+                
+                System.out.println("ORG 1  : " + str);
             }
-            if (line.contains("Parameters")){
+            
+            if (hasFunc == 1 && line.contains("Parameters")){
             	line = br.readLine();
             	
             	while (line.contains("See also") == false && line.contains("See Also") == false){
-            		str += addWord(line, str, "uffer ");
-            		str += addWord(line, str, "allocate ");
-            		str += addWord(line, str, "dynamic ");
-            		str += addWord(line, str, "must ");
-            		str += addWord(line, str, "handle ");
-            		str += addWord(line, str, "one of the following ");
-            		//str += addWord(line, str, "");
+            		str += addWord(line, str, "uffer");
+            		str += addWord(line, str, "allocate");
+            		str += addWord(line, str, "dynamic");
+            		str += addWord(line, str, "must");
+            		str += addWord(line, str, "handle");
+            		str += addWord(line, str, "one of the following");
+            		str += addWord(line, str, "file");
+            		str += addWord(line, str, "free");
+            		str += addWord(line, str, "create");
+            		str += addWord(line, str, "delete");
+            		// str += addWord(line, str, "");
+            		
             		line = br.readLine();
+            		
             	}
             	
-            	System.out.println("ORG  : " + str);
+            	System.out.println("ORG 2  : " + str);
             	break;
             }
         }

@@ -66,7 +66,7 @@ public class Main {
 //        System.out.println(sWhatever);
 
 
-        int index = 701; // Index
+        int index = 835; // Index
 
         for (String url : URLs) {
 
@@ -78,7 +78,7 @@ public class Main {
 
             if (i++ < index - 2) { continue; }
             
-            if (i > 801) break;
+            if (i > 892) break;
             
             String str = funcParser.parse(url);
             str = str.replace("_IN_", "");
@@ -138,8 +138,23 @@ public class Main {
             	str = str.replaceAll("one of the following", "");
             	str += "one of the following, ";
             }
-            
-            
+            if (str.contains("file")){
+            	str = str.replaceAll("file", "");
+            	str += "file, ";
+            }
+            if (str.contains("free")){
+            	str = str.replaceAll("free", "");
+            	str += "free, ";
+            }
+            if (str.contains("create")){
+            	str = str.replaceAll("create", "");
+            	str += "create, ";
+            }
+            if (str.contains("delete")){
+            	str = str.replaceAll("delete", "");
+            	str += "delete, ";
+            }
+
             str = str + "}";
             
             System.out.println(str);
