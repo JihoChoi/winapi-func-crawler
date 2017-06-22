@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Jiho on 2017. 6. 1..
@@ -16,6 +18,7 @@ import java.net.URL;
 public class Visitor
 {
 
+
     public Visitor()
     {
         System.out.println("=========================================================================");
@@ -25,6 +28,96 @@ public class Visitor
     }
 
     /* Connect the URL and retrieve the markup as string buffer */
+
+
+    public void retrieveManualPage(String url) throws Exception {
+
+
+//        conn.disconnect();
+
+        //        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+        //        return br;
+    }
+
+
+    public WinAPIFunction buildFunction(String url) throws IOException {
+
+
+        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+
+        WinAPIFunction windowsAPIFunction = new WinAPIFunction();
+
+        String str = "";
+        String line;
+        int hasFunctionFlag = 0;
+
+        while ((line = reader.readLine()) != null) {
+
+            // Parsing Syntax from the MSDN Manual Page
+            if (line.contains("<pre>"))
+            {
+                line = reader.readLine();
+
+                if (line.isEmpty()) {
+                    line = reader.readLine();
+                }
+
+                while (line.contains("</pre>") == false) {
+
+                    str += line;
+                    line = reader.readLine();
+                }
+                hasFunctionFlag = 1;
+
+                System.out.println("ORG  : " + str);
+
+                windowsAPIFunction.setSyntax(str);
+                windowsAPIFunction.trim();
+            }
+
+
+//            // Searching Keywords
+//            if (hasFunctionFlag == 1 && line.contains("Parameters"))
+//            {
+//                line = reader.readLine();
+//
+//                String lowerLine = line.toLowerCase();
+//
+//                while (lowerLine.contains("see also") == false && lowerLine != null)
+//                {
+//
+//                    System.out.println("line : " + line);
+//
+//                    String[] keywords = {
+//                            "buffer", "dynamic", "must", "handle", "one of the following",
+//                            "file", "handle", "allocate", "free", "open", "close", "create", "delete"
+//                    };
+//
+//                    List<String> keywordsList = Arrays.asList(keywords);
+//
+//                    for (String e : keywordsList)
+//                    {
+//                        if (line.contains(e)) {
+//                            System.out.println(e);
+////                            windowsAPIFunction.addKeywords(e);
+//                        }
+//                    }
+//                    line = reader.readLine();
+//                }
+//                break;
+//            }
+
+        }
+
+
+
+        reader.close();
+
+        return windowsAPIFunction;
+    }
+
+
 
     public String retrieveFunctionInformation(String url) throws Exception {
 
@@ -60,23 +153,6 @@ public class Visitor
             {
                 line = br.readLine();
 
-                while (line.contains("See also") == false && line.contains("See Also") == false)
-                {
-                    str += addWord(line, str, "uffer");
-                    str += addWord(line, str, "allocate");
-                    str += addWord(line, str, "dynamic");
-                    str += addWord(line, str, "must");
-                    str += addWord(line, str, "handle");
-                    str += addWord(line, str, "one of the following");
-                    str += addWord(line, str, "file");
-                    str += addWord(line, str, "free");
-                    str += addWord(line, str, "create");
-                    str += addWord(line, str, "delete");
-                    // str += addWord(line, str, "");
-
-                    line = br.readLine();
-
-                }
 
                 System.out.println("ORG 2  : " + str);
                 break;

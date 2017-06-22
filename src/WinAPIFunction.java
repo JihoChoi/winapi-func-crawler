@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,7 +10,7 @@ import java.util.List;
 public class WinAPIFunction {
 
     String syntax;
-
+    List<String> keywords;
 
     // Syntax TODO
 
@@ -16,12 +18,27 @@ public class WinAPIFunction {
     String name;
     List<String> parameters;
 
+    public WinAPIFunction() {
+        keywords = new ArrayList<String>();
+
+    }
+
     public WinAPIFunction(String str) {
         this.syntax = str;
     }
 
     public String getSyntax() {
         return syntax;
+    }
+
+    public void setSyntax(String syntax) {
+        this.syntax = syntax;
+    }
+    public void addKeywords(String keyword) {
+
+        System.out.println("HERE" + keyword);
+//        List<String> newList = Arrays.asList(keyword);
+//        keywords.addAll(newList);
     }
 
     public void trim() {
@@ -58,7 +75,5 @@ public class WinAPIFunction {
         // System.out.println("AFTER TRIM " + this.syntax);
 
     }
-
-
 
 }

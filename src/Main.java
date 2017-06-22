@@ -85,13 +85,15 @@ public class Main {
             // This line is to skip the existing functions
             if (i++ < index - 2) { continue; }
 
-            String str = visitor.retrieveFunctionInformation(url);
+//            String str = visitor.retrieveFunctionInformation(url);
 
-            WinAPIFunction winFunc = new WinAPIFunction(str);
+//            visitor.retrieveManualPage(url);
+            WinAPIFunction winFunc = visitor.buildFunction(url);
 
-            winFunc.trim();
+
 
             String out = winFunc.getSyntax();
+            System.out.println(out);
 
 //            fw.write(out + "\r\n");
 //            fw.write("\r\n");
