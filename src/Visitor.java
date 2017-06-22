@@ -64,12 +64,10 @@ public class Visitor
                 }
 
                 while (line.contains("</pre>") == false) {
-
                     str += line;
                     line = reader.readLine();
                 }
                 hasFunctionFlag = 1;
-
                 System.out.println("ORG  : " + str);
 
                 windowsAPIFunction.setSyntax(str);
@@ -78,35 +76,29 @@ public class Visitor
 
 
 //            // Searching Keywords
-//            if (hasFunctionFlag == 1 && line.contains("Parameters"))
-//            {
-//                line = reader.readLine();
-//
-//                String lowerLine = line.toLowerCase();
-//
-//                while (lowerLine.contains("see also") == false && lowerLine != null)
-//                {
-//
-//                    System.out.println("line : " + line);
-//
-//                    String[] keywords = {
-//                            "buffer", "dynamic", "must", "handle", "one of the following",
-//                            "file", "handle", "allocate", "free", "open", "close", "create", "delete"
-//                    };
-//
-//                    List<String> keywordsList = Arrays.asList(keywords);
-//
-//                    for (String e : keywordsList)
-//                    {
-//                        if (line.contains(e)) {
-//                            System.out.println(e);
-////                            windowsAPIFunction.addKeywords(e);
-//                        }
-//                    }
-//                    line = reader.readLine();
-//                }
-//                break;
-//            }
+            if (hasFunctionFlag == 1 && line.contains("Parameters"))
+            {
+                line = reader.readLine();
+                while (line != null && line.toLowerCase().contains("see also") == false)
+                {
+                    String lowerLine = line.toLowerCase();
+
+                    String[] keywords = {
+                            "buffer", "dynamic", "must", "handle", "one of the following",
+                            "file", "handle", "allocate", "free", "open", "close", "create", "delete"
+                    };
+
+                    List<String> keywordsList = Arrays.asList(keywords);
+                    for (String e : keywordsList)
+                    {
+                        if (lowerLine.contains(e)) {
+                            windowsAPIFunction.addKeywords(e);
+                        }
+                    }
+                    line = reader.readLine();
+                }
+                break;
+            }
 
         }
 

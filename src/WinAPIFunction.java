@@ -36,9 +36,7 @@ public class WinAPIFunction {
     }
     public void addKeywords(String keyword) {
 
-        System.out.println("HERE" + keyword);
-//        List<String> newList = Arrays.asList(keyword);
-//        keywords.addAll(newList);
+        keywords.add(keyword);
     }
 
     public void trim() {
