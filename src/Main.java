@@ -24,8 +24,8 @@ public class Main {
         // Retrieve Target URLS
 
     /*
-        WinURLParser up = new WinURLParser();
-        List<String> URLs = up.parse();
+        URLParser up = new URLParser();
+        List<String> URLs = up.retrieveFunctionInformation();
 
         // Retrieve MSDN URLs and write to file.
 
@@ -63,7 +63,7 @@ public class Main {
         }
 
 
-        WinFuncParser funcParser = new WinFuncParser();
+        Visitor visitor = new Visitor();
         FileWriter fw = new FileWriter("./log/output.txt");
 
         int i = 0;
@@ -85,63 +85,16 @@ public class Main {
             // This line is to skip the existing functions
             if (i++ < index - 2) { continue; }
 
+            String str = visitor.retrieveFunctionInformation(url);
 
-            String str = funcParser.parse(url);
+            WinAPIFunction winFunc = new WinAPIFunction(str);
 
+            winFunc.trim();
 
+            String out = winFunc.getSyntax();
 
-
-            str = str.replace("_IN_", "");
-            str = str.replace("_In_", "");
-            str = str.replace("__in", "");
-
-            str = str.replace("_Out_", "");
-            str = str.replace("__out", "");
-
-            str = str.replace("_Inout_", "");
-
-            str = str.replace("opt_", ""); // this method is to remove _In_opt_
-
-            /* CSS Tag removal */
-
-//            _Reserved_
-//            _Reserved_
-
-            // TODOs 이 부분 분리
-
-            str = str.replace("<span style=\"color:Blue;\">", "");
-            str = str.replace("</span>", "");
-            str = str.replace("WINAPI", "");
-
-            str = str.replace("_Inout_", "");
-            str = str.replaceAll("&nbsp;", "");
-            str = str.replaceAll(String.valueOf((char)160), "");
-
-            str = str.replaceAll("  ", " ");
-
-            str = str.replaceAll("CALLBACK ", "");
-            str = str.replaceAll("const", "");
-            str = str.replaceAll("\\( ", "\\(");
-            str = str.trim();
-
-            str = str.substring(0, str.length() - 1);
-
-            str = str + "{}";
-
-
-//            str = str.trim().replaceAll("\\s{2,}", " ").trim();;
-//            str = str.replace("\t", "");
-
-
-//            System.out.println("FUNC : " + str + "\n");
-            System.out.println(str);
-
-
-//            fw.write("URL  : " + url + "\r\n");
-//            fw.write("FUNC : " + str + "\r\n");
-
-            fw.write(str + "\r\n");
-            fw.write("\r\n");
+//            fw.write(out + "\r\n");
+//            fw.write("\r\n");
 
         }
 

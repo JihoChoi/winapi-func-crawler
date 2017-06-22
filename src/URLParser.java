@@ -15,10 +15,10 @@ import java.util.List;
     WEB -> MSDN URLs
  */
 
-public class WinURLParser {
+public class URLParser {
 
 
-    public WinURLParser() {
+    public URLParser() {
         System.out.println("====================================================================");
         System.out.println("URL Parser is to retrieve WinAPI MSDN URLs from the Target API Page.");
         System.out.println("====================================================================");
