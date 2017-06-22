@@ -51,7 +51,7 @@ public class WinAPIFunction {
         str = str.replaceAll("\\( ", "\\(");
         str = str.trim();
         str = str.substring(0, str.length() - 1);
-        str = str + "{}";
+//        str = str + "{}";
 
         this.syntax = str;
 
