@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Jiho on 2017. 6. 1..
 
- This class is used to get all the MSDN urls from the target page.
+    Created by Jiho on 2017. 6. 1..
+    This class is used to get all the MSDN URLs from the target page.
 
- String target = "http://www.win32-api.narod.ru/";
-
+    String target = "http://www.win32-api.narod.ru/";
+    WEB -> MSDN URLs
  */
 
-public class WinURLParser {
+public class URLParser {
 
 
-    public WinURLParser() {
-
-        System.out.println("URL Parser is to retrieve MSDN Document URLs from the API Page.");
+    public URLParser() {
+        System.out.println("====================================================================");
+        System.out.println("URL Parser is to retrieve WinAPI MSDN URLs from the Target API Page.");
+        System.out.println("====================================================================");
         System.out.println("");
-
     }
 
     public List<String> parse() throws Exception {
