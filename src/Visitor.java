@@ -70,7 +70,7 @@ public class Visitor
                 }
                 hasFunctionFlag = 1;
 
-                System.out.println("ORG  : " + str);
+//                System.out.println("ORG  : " + str);
                 
             }
            
@@ -103,8 +103,7 @@ public class Visitor
                 }
                 result += "}";
                 
-                System.out.println("result : " + result);
-//                System.out.println("ORG 2  : " + str);
+                System.out.println(result);
                 break;
             }
 
