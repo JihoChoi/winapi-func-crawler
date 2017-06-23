@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/winapi-crawler.iml" filepath="$PROJECT_DIR$/winapi-crawler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/winapi-func-crawler.iml" filepath="$PROJECT_DIR$/winapi-func-crawler.iml" />
     </modules>
   </component>
 </project>
