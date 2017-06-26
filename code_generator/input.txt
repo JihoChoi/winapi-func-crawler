@@ -1,0 +1,14 @@
+ERROR_ACCESS_DENIED
+Access to one or more RSM objects is denied.
+ERROR_DEVICE_NOT_AVAILABLE
+The library is not currently connected.
+ERROR_INVALID_HANDLE
+The value specified in the hSession parameter is not valid.
+ERROR_INVALID_LIBRARY
+The library is the offline library.
+ERROR_INVALID_PARAMETER
+The library ID or session ID is not valid.
+ERROR_NOT_CONNECTED
+Unable to connect to the RSM service.
+ERROR_SUCCESS
+The function was successful.

@@ -1,0 +1,285 @@
+BOOL GetVolumePathNamesForVolumeName(LPCTSTR lpszVolumeName, LPTSTR lpszVolumePathNames, DWORD cchBufferLength, PDWORD lpcchReturnLength){
+//found following keywords: buffer,file,
+    __sparrow_bufacc();
+    __sparrow_fopen();
+}
+DWORD GetVolumesFromDrive(LPWSTR pszDriveName, LPWSTR * VolumeNameBufferPtr, LPWSTR * DriveLetterBufferPtr){
+//found none
+}
+HWND GetWindow(HWND hWnd, UINT uCmd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+HDC GetWindowDC(HWND hWnd){
+//found following keywords: handle,must,
+    __sparrow_deref();
+    must
+}
+BOOL GetWindowExtEx(HDC hdc, LPSIZE lpSize){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL GetWindowInfo(HWND hwnd, PWINDOWINFO pwi){
+//found following keywords: handle,must,
+    __sparrow_deref();
+    must
+}
+LONG GetWindowLong(HWND hWnd, int nIndex){
+//found following keywords: handle,must,returns,create,
+    __sparrow_deref();
+    must
+    return
+    __sparrow_new();
+}
+LONG_PTR GetWindowLongPtr(HWND hWnd, int nIndex){
+//found following keywords: handle,must,returns,create,
+    __sparrow_deref();
+    must
+    return
+    __sparrow_new();
+}
+UINT GetWindowModuleFileName(HWND hwnd, LPTSTR lpszFileName, UINT cchFileNameMax){
+//found following keywords: handle,buffer,file,
+    __sparrow_deref();
+    __sparrow_bufacc();
+    __sparrow_fopen();
+}
+BOOL GetWindowOrgEx(HDC hdc, LPPOINT lpPoint){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL GetWindowPlacement(HWND hWnd, WINDOWPLACEMENT *lpwndpl){
+//found following keywords: handle,must,returns,
+    __sparrow_deref();
+    must
+    return
+}
+BOOL GetWindowRect(HWND hWnd, LPRECT lpRect){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+int GetWindowRgn(HWND hWnd, HRGN hRgn){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+int GetWindowRgnBox(HWND hWnd, LPRECT lprc){
+//found none
+}
+UINT GetWindowsDirectory(LPTSTR lpBuffer, UINT uSize){
+//found following keywords: buffer,returns,create,
+    __sparrow_bufacc();
+    return
+    __sparrow_new();
+}
+int GetWindowText(HWND hWnd, LPTSTR lpString, int nMaxCount){
+//found following keywords: handle,buffer,
+    __sparrow_deref();
+    __sparrow_bufacc();
+}
+int GetWindowTextLength(HWND hWnd){
+//found following keywords: handle,buffer,
+    __sparrow_deref();
+    __sparrow_bufacc();
+}
+DWORD GetWindowThreadProcessId(HWND hWnd, LPDWORD lpdwProcessId){
+//found following keywords: handle,create,
+    __sparrow_deref();
+    __sparrow_new();
+}
+UINT GetWinMetaFileBits(HENHMETAFILE hemf, UINT cbBuffer, LPBYTE lpbBuffer, INT fnMapMode, HDC hdcRef){
+//found following keywords: handle,buffer,file,returns,create,
+    __sparrow_deref();
+    __sparrow_bufacc();
+    __sparrow_fopen();
+    return
+    __sparrow_new();
+}
+BOOL GetWorldTransform(HDC hdc, LPXFORM lpXform){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+UINT GetWriteWatch(DWORD dwFlags, PVOID lpBaseAddress, SIZE_T dwRegionSize, PVOID *lpAddresses, PULONG_PTR lpdwCount, PULONG lpdwGranularity){
+//found following keywords: buffer,allocate,must,
+    __sparrow_bufacc();
+    __sparrow_new();
+    must
+}
+BOOL GetWsChanges(HANDLE hProcess, PPSAPI_WS_WATCH_INFORMATION lpWatchInfo, DWORD cb){
+//found following keywords: handle,buffer,allocate,dynamic,must,returns,
+    __sparrow_deref();
+    __sparrow_bufacc();
+    __sparrow_new();
+    must
+    return
+}
+ATOM GlobalAddAtom(LPCTSTR lpString){
+//found following keywords: must,returns,create,delete,
+    must
+    return
+    __sparrow_new();
+}
+HGLOBAL GlobalAlloc(UINT uFlags, SIZE_T dwBytes){
+//found following keywords: handle,allocate,dynamic,returns,free,
+    __sparrow_deref();
+    __sparrow_new();
+    return
+    __sparrow_delete();
+}
+ATOM GlobalDeleteAtom(ATOM nAtom){
+//found following keywords: returns,delete,
+    return
+    __sparrow_delete();
+}
+HGLOBAL GlobalDiscard([in]HGLOBAL hMem){
+//found following keywords: handle,allocate,
+    __sparrow_deref();
+    __sparrow_new();
+}
+ATOM GlobalFindAtom(LPCTSTR lpString){
+//found following keywords: must,create,
+    must
+    __sparrow_new();
+}
+UINT GlobalFlags(HGLOBAL hMem){
+//found following keywords: handle,allocate,
+    __sparrow_deref();
+    __sparrow_new();
+}
+HGLOBAL GlobalFree(HGLOBAL hMem){
+//found following keywords: handle,allocate,free,
+    __sparrow_deref();
+    __sparrow_new();
+    __sparrow_delete();
+}
+UINT GlobalGetAtomName(ATOM nAtom, LPTSTR lpBuffer, int nSize){
+//found following keywords: buffer,
+    __sparrow_bufacc();
+}
+HGLOBAL GlobalHandle(LPCVOID pMem){
+//found following keywords: handle,allocate,returns,
+    __sparrow_deref();
+    __sparrow_new();
+    return
+}
+LPVOID GlobalLock(HGLOBAL hMem){
+//found following keywords: handle,allocate,must,returns,
+    __sparrow_deref();
+    __sparrow_new();
+    must
+    return
+}
+void GlobalMemoryStatus(LPMEMORYSTATUS lpBuffer){
+//found none
+}
+BOOL GlobalMemoryStatusEx(LPMEMORYSTATUSEX lpBuffer){
+//found following keywords: file,allocate,free,
+    __sparrow_fopen();
+    __sparrow_new();
+    __sparrow_delete();
+}
+HGLOBAL GlobalReAlloc(HGLOBAL hMem, SIZE_T dwBytes, UINT uFlags){
+//found following keywords: handle,allocate,free,
+    __sparrow_deref();
+    __sparrow_new();
+    __sparrow_delete();
+}
+SIZE_T GlobalSize(HGLOBAL hMem){
+//found following keywords: handle,allocate,
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL GlobalUnlock(HGLOBAL hMem){
+//found following keywords: handle,allocate,must,returns,
+    __sparrow_deref();
+    __sparrow_new();
+    must
+    return
+}
+BOOL GradientFill(HDC hdc, PTRIVERTEX pVertex, ULONG nVertex, PVOID pMesh, ULONG nMesh, ULONG ulMode){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL GrayString(HDC hDC, HBRUSH hBrush, GRAYSTRINGPROC lpOutputFunc, LPARAM lpData, int nCount, int X, int Y, int nWidth, int nHeight){
+//found following keywords: handle,must,returns,create,
+    __sparrow_deref();
+    must
+    return
+    __sparrow_new();
+}
+VOID Handler(DWORD fdwControl){
+//found following keywords: handle,must,returns,create,
+    __sparrow_deref();
+    must
+    return
+    __sparrow_new();
+}
+DWORD HandlerEx(DWORD dwControl, DWORD dwEventType, LPVOID lpEventData, LPVOID lpContext){
+//found following keywords: handle,must,returns,create,
+    __sparrow_deref();
+    must
+    return
+    __sparrow_new();
+}
+BOOL HandlerRoutine(DWORD dwCtrlType){
+//found following keywords: handle,returns,create,
+    __sparrow_deref();
+    return
+    __sparrow_new();
+}
+BOOL Heap32First(LPHEAPENTRY32 lphe, DWORD th32ProcessID, ULONG_PTR th32HeapID){
+//found following keywords: buffer,must,
+    __sparrow_bufacc();
+    must
+}
+BOOL Heap32ListFirst(HANDLE hSnapshot, LPHEAPLIST32 lphl){
+//found following keywords: handle,buffer,must,
+    __sparrow_deref();
+    __sparrow_bufacc();
+    must
+}
+BOOL Heap32ListNext(HANDLE hSnapshot, LPHEAPLIST32 lphl){
+//found following keywords: handle,buffer,
+    __sparrow_deref();
+    __sparrow_bufacc();
+}
+BOOL Heap32Next(LPHEAPENTRY32 lphe){
+//found following keywords: buffer,returns,create,
+    __sparrow_bufacc();
+    return
+    __sparrow_new();
+}
+LPVOID HeapAlloc(HANDLE hHeap, DWORD dwFlags, SIZE_T dwBytes){
+//found following keywords: handle,allocate,must,free,create,
+    __sparrow_deref();
+    __sparrow_new();
+    must
+    __sparrow_delete();
+}
+SIZE_T HeapCompact(HANDLE hHeap, DWORD dwFlags){
+//found following keywords: handle,allocate,must,returns,free,create,
+    __sparrow_deref();
+    __sparrow_new();
+    must
+    return
+    __sparrow_delete();
+}
+HANDLE HeapCreate(DWORD flOptions, SIZE_T dwInitialSize, SIZE_T dwMaximumSize){
+//found following keywords: handle,allocate,dynamic,must,free,create,
+    __sparrow_deref();
+    __sparrow_new();
+    must
+    __sparrow_delete();
+}
+BOOL HeapDestroy(HANDLE hHeap){
+//found following keywords: handle,allocate,free,
+    __sparrow_deref();
+    __sparrow_new();
+    __sparrow_delete();
+}
+BOOL HeapFree(HANDLE hHeap, DWORD dwFlags, LPVOID lpMem){
+//found following keywords: handle,allocate,must,free,create,
+    __sparrow_deref();
+    __sparrow_new();
+    must
+    __sparrow_delete();
+}

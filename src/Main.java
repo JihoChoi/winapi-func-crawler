@@ -83,9 +83,9 @@ public class Main {
             }
         }
 
-        int index = 1051; // Index\
+        int index = 1001; // Index\
         WinFuncParser funcParser = new WinFuncParser();
-        FileWriter fw = new FileWriter("./log/" + index+"-"+ (index+50) +".txt");
+        FileWriter fw = new FileWriter("./log/" + index+"-"+ (index+50) +".c");
 
         int i = 0;
 
@@ -105,7 +105,7 @@ public class Main {
 
             if (i++ < index - 2) { continue; }
             
-            if (i > 1100) break;
+            if (i > 1050) break;
             
             WinFuncObj obj = funcParser.parse(url);
 
@@ -141,6 +141,10 @@ public class Main {
             //str += addKeyword(str, "allocate");
             obj.str = str;
             String funcs = "";
+            if (obj.handle == true){
+            	str += "handle,";
+            	funcs += "    __sparrow_deref();" + "\r\n";
+            }
             if (obj.buffer == true){
             	str += "buffer,";
             	funcs += "    __sparrow_bufacc();" + "\r\n";
@@ -155,15 +159,12 @@ public class Main {
             }
             if (obj.dynamic == true){
             	str += "dynamic,";
-            	funcs += "    __sparrow_new();" + "\r\n";
+            	if(funcs.contains("    __sparrow_new();")==false)
+            		funcs += "    __sparrow_new();" + "\r\n";
             }
             if (obj.must == true){
             	str += "must,";
             	funcs += "    must" + "\r\n";
-            }
-            if (obj.handle == true){
-            	str += "handle,";
-            	funcs += "    __sparrow_deref();" + "\r\n";
             }
             if (obj.returns == true){
             	str += "returns,";
@@ -171,15 +172,17 @@ public class Main {
             }
             if (obj.free == true){
             	str += "free,";
-            	funcs += "    __sparrow_delete();" + "\r\n";
+            	funcs += "    __sparrow_close_handle();" + "\r\n";
             }
             if (obj.create == true){
             	str += "create,";
-            	funcs += "    __sparrow_new();" + "\r\n";
+            	if(funcs.contains("    __sparrow_new();")==false)
+            		funcs += "    __sparrow_new();" + "\r\n";
             }
             if (obj.delete == true){
             	str += "delete,";
-            	funcs += "    __sparrow_delete();" + "\r\n";
+            	if(funcs.contains("    __sparrow_new();")==false)
+            		funcs += "    __sparrow_delete();" + "\r\n";
             }
             /*
             if (str.contains("allocate")){

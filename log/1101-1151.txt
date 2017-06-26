@@ -1,0 +1,227 @@
+PVOID __cdecl InterlockedExchangePointer(PVOID volatile *Target, PVOID Value){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedIncrement(LONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONGLONG __cdecl InterlockedIncrement64(LONGLONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedIncrementAcquire(LONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedIncrementRelease(LONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+int InternalGetWindowText(HWND hWnd, LPWSTR lpString, int nMaxCount){
+//found following keywords: buffer,handle,
+    __sparrow_bufacc();
+    __sparrow_deref();
+}
+int IntersectClipRect(HDC hdc, int nLeftRect, int nTopRect, int nRightRect, int nBottomRect){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IntersectRect(LPRECT lprcDst,  RECT *lprcSrc1,  RECT *lprcSrc2){
+//found none
+}
+BOOL InvalidateRect(HWND hWnd,  RECT *lpRect, BOOL bErase){
+//found following keywords: handle,returns,
+    __sparrow_deref();
+    return
+}
+BOOL InvalidateRgn(HWND hWnd, HRGN hRgn, BOOL bErase){
+//found following keywords: must,handle,create,
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+DWORD InventoryNtmsLibrary(HANDLE hSession, LPNTMS_GUID lpLibraryId, DWORD dwAction){
+//found following keywords: must,returns,
+    must
+    return
+}
+BOOL InvertRect(HDC hDC,  RECT *lprc){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL InvertRgn(HDC hdc, HRGN hrgn){
+//found none
+}
+BOOL IsBadCodePtr(FARPROC lpfn){
+//found following keywords: handle,returns,
+    __sparrow_deref();
+    return
+}
+BOOL IsBadReadPtr( VOID *lp, UINT_PTR ucb){
+//found following keywords: handle,returns,free,
+    __sparrow_deref();
+    return
+    __sparrow_delete();
+}
+BOOL IsBadStringPtr(LPCTSTR lpsz, UINT_PTR ucchMax){
+//found following keywords: handle,returns,free,
+    __sparrow_deref();
+    return
+    __sparrow_delete();
+}
+BOOL IsBadWritePtr(LPVOID lp, UINT_PTR ucb){
+//found following keywords: handle,returns,free,create,
+    __sparrow_deref();
+    return
+    __sparrow_delete();
+    __sparrow_new();
+}
+BOOL IsCharAlpha(TCHAR ch){
+//found none
+}
+BOOL IsCharAlphaNumeric(TCHAR ch){
+//found none
+}
+BOOL IsCharLower(TCHAR ch){
+//found none
+}
+BOOL IsCharUpper(TCHAR ch){
+//found none
+}
+BOOL IsChild(HWND hWndParent, HWND hWnd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IsClipboardFormatAvailable(UINT format){
+//found none
+}
+BOOL IsDebuggerPresent(void){
+//found none
+}
+UINT IsDlgButtonChecked(HWND hDlg, int nIDButton){
+//found following keywords: handle,create,
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL IsGUIThread(BOOL bConvert){
+//found following keywords: returns,
+    return
+}
+BOOL IsHungAppWindow(HWND hWnd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IsIconic(HWND hWnd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IsMenu(HMENU hMenu){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IsProcessInJob(HANDLE ProcessHandle, HANDLE JobHandle, PBOOL Result){
+//found following keywords: must,handle,
+    must
+    __sparrow_deref();
+}
+BOOL IsProcessorFeaturePresent(DWORD ProcessorFeature){
+//found following keywords: returns,
+    return
+}
+BOOLEAN IsPwrHibernateAllowed(void){
+//found following keywords: returns,
+    return
+}
+BOOLEAN IsPwrShutdownAllowed(void){
+//found following keywords: must,returns,
+    must
+    return
+}
+BOOLEAN IsPwrSuspendAllowed(void){
+//found following keywords: returns,
+    return
+}
+BOOL IsRectEmpty( RECT *lprc){
+//found none
+}
+BOOL IsSystemResumeAutomatic(void){
+//found following keywords: handle,returns,
+    __sparrow_deref();
+    return
+}
+BOOL IsThreadAFiber(void){
+//found following keywords: returns,
+    return
+}
+BOOL IsThreadpoolTimerSet(PTP_TIMER pti){
+//found following keywords: returns,
+    return
+}
+BOOL IsValidCodePage(UINT CodePage){
+//found none
+}
+BOOL IsValidLanguageGroup(LGRPID LanguageGroup, DWORD dwFlags){
+//found following keywords: returns,
+    return
+}
+BOOL IsValidLocale(LCID Locale, DWORD dwFlags){
+//found following keywords: must,handle,returns,create,
+    must
+    __sparrow_deref();
+    return
+    __sparrow_new();
+}
+BOOL IsValidLocaleName(LPCWSTR lpLocaleName){
+//found following keywords: must,handle,returns,
+    must
+    __sparrow_deref();
+    return
+}
+BOOL IsWindow(HWND hWnd){
+//found following keywords: handle,create,
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL IsWindowEnabled(HWND hWnd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IsWindowUnicode(HWND hWnd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IsWindowVisible(HWND hWnd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+BOOL IsWow64Message(void){
+//found following keywords: returns,
+    return
+}
+BOOL IsWow64Process(HANDLE hProcess, PBOOL Wow64Process){
+//found following keywords: must,handle,
+    must
+    __sparrow_deref();
+}
+BOOL IsZoomed(HWND hWnd){
+//found following keywords: handle,
+    __sparrow_deref();
+}
+LRESULT JournalPlaybackProc(int code, WPARAM wParam, LPARAM lParam){
+//found following keywords: must,returns,
+    must
+    return
+}
+LRESULT JournalRecordProc(int code, WPARAM wParam, LPARAM lParam){
+//found following keywords: buffer,dynamic,must,returns,
+    __sparrow_bufacc();
+    __sparrow_new();
+    must
+    return
+}
