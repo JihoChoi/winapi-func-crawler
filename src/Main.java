@@ -25,6 +25,36 @@ public class Main {
 			return "";
 		}
 	}*/
+	public static String strReverse(String org){
+		String ret = new String();
+		for(int i = org.length()-1; i >= 0; i--){
+			ret = ret + org.charAt(i);
+		}
+		return ret;
+	}
+	
+	public static int countNumOfWord(String org, String word){
+		int count = 0;
+		if (word.length() <= 0){
+			return 0;
+		}
+		for(int i = 0; i < org.length()-word.length(); i ++){
+			/*String temp = org.substring(i);
+			if(temp.length() < word.length()){
+				break;
+			}*/
+			
+			if(org.charAt(i) == word.charAt(0)){
+				String tmp1 = org.substring(i, word.length());
+				if(tmp1 == word){
+					count++;
+					i += word.length();
+				}
+			}
+		}
+		return count;
+	}
+	
     public static void main(String[] args) throws Exception {
 
         // Retrieve Target URLS
@@ -53,9 +83,9 @@ public class Main {
             }
         }
 
-
+        int index = 1051; // Index\
         WinFuncParser funcParser = new WinFuncParser();
-        FileWriter fw = new FileWriter("./log/output.txt");
+        FileWriter fw = new FileWriter("./log/" + index+"-"+ (index+50) +".txt");
 
         int i = 0;
 
@@ -65,11 +95,8 @@ public class Main {
 //        scanIn.close();
 //        System.out.println(sWhatever);
 
-
-        int index = 835; // Index
-
         for (String url : URLs) {
-
+        	
             if (url.equals("https://msdn.microsoft.com/en-us/library/aa383667")) {
                 continue;
             }
@@ -78,9 +105,12 @@ public class Main {
 
             if (i++ < index - 2) { continue; }
             
-            if (i > 892) break;
+            if (i > 1100) break;
             
-            String str = funcParser.parse(url);
+            WinFuncObj obj = funcParser.parse(url);
+
+            //String str = funcParser.parse(url);
+            String str = obj.str;
             str = str.replace("_IN_", "");
             str = str.replace("_In_", "");
             str = str.replace("__in", "");
@@ -93,7 +123,6 @@ public class Main {
             str = str.replace("WINAPI", "");
 
             str = str.replace("_Inout_", "");
-            str = str.replaceAll("&nbsp;", "");
             str = str.replaceAll(String.valueOf((char)160), "");
 
             str = str.replaceAll("  ", " ");
@@ -104,65 +133,133 @@ public class Main {
             str = str.replaceAll("\\( ", "\\(");
             str = str.trim();
 
-            /*if (str.length() != 0){
-            	str = str.substring(0, str.length() - 1);
-            }*/
             str = str.replaceAll(";", "");
             
             
-            str = str + "{//";
+            str = str + "{" + "\r\n" + "//found following keywords: ";
             //str += addKeyword(str, "Buffer");
             //str += addKeyword(str, "allocate");
-            
-            if (str.contains("uffer")){
-            	str = str.replaceAll("uffer", "");
-            	str += "Buffer, ";
+            obj.str = str;
+            String funcs = "";
+            if (obj.buffer == true){
+            	str += "buffer,";
+            	funcs += "    __sparrow_bufacc();" + "\r\n";
             }
+            if (obj.file == true){
+            	str += "file,";
+            	funcs += "    __sparrow_fopen();" + "\r\n";
+            }
+            if (obj.allocate == true){
+            	str += "allocate,";
+            	funcs += "    __sparrow_new();" + "\r\n";
+            }
+            if (obj.dynamic == true){
+            	str += "dynamic,";
+            	funcs += "    __sparrow_new();" + "\r\n";
+            }
+            if (obj.must == true){
+            	str += "must,";
+            	funcs += "    must" + "\r\n";
+            }
+            if (obj.handle == true){
+            	str += "handle,";
+            	funcs += "    __sparrow_deref();" + "\r\n";
+            }
+            if (obj.returns == true){
+            	str += "returns,";
+            	funcs += "    return" + "\r\n";
+            }
+            if (obj.free == true){
+            	str += "free,";
+            	funcs += "    __sparrow_delete();" + "\r\n";
+            }
+            if (obj.create == true){
+            	str += "create,";
+            	funcs += "    __sparrow_new();" + "\r\n";
+            }
+            if (obj.delete == true){
+            	str += "delete,";
+            	funcs += "    __sparrow_delete();" + "\r\n";
+            }
+            /*
             if (str.contains("allocate")){
-            	str = str.replaceAll("allocate", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("allocate"), "");
+            	str = strReverse(str);
             	str += "allocate, ";
             }
             if (str.contains("dynamic")){
-            	str = str.replaceAll("dynamic", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("dynamic"), "");
+            	str = strReverse(str);
             	str += "dynamic, ";
             }
             if (str.contains("must")){
-            	str = str.replaceAll("must", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("must"), "");
+            	str = strReverse(str);
             	str += "must, ";
             }
             if (str.contains("handle")){
-            	str = str.replaceAll("handle", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("handle"), "");
+            	str = strReverse(str);
             	str += "handle, ";
             }
-            if (str.contains("one of the following")){
-            	str = str.replaceAll("one of the following", "");
-            	str += "one of the following, ";
+            if (str.contains("returns one of the following")){
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("returns one of the following"), "");
+            	str = strReverse(str);
+            	str += "returns one of the following, ";
             }
             if (str.contains("file")){
-            	str = str.replaceAll("file", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("file"), "");
+            	str = strReverse(str);
             	str += "file, ";
             }
             if (str.contains("free")){
-            	str = str.replaceAll("free", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("free"), "");
+            	str = strReverse(str);
             	str += "free, ";
             }
             if (str.contains("create")){
-            	str = str.replaceAll("create", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("create"), "");
+            	str = strReverse(str);
             	str += "create, ";
             }
             if (str.contains("delete")){
-            	str = str.replaceAll("delete", "");
+            	str = strReverse(str);
+            	str = str.replaceFirst(strReverse("delete"), "");
+            	str = strReverse(str);
             	str += "delete, ";
             }
-
+*/
+            if(funcs != ""){
+            	str += "\r\n" + funcs;
+            }
+            else{
+            	str = str.replaceAll("found following keywords: ", "");
+            	str += "found none" + "\r\n";
+            }
             str = str + "}";
-            
-            System.out.println(str);
+/*      
+            if (str.contains("uffer") && str.contains("size")){
+            	System.out.println("found");
+                fw.write("found" + "\r\n");
+            }
+            else{
+            	System.out.println("not found");
+            	fw.write("\r\n");
+            }*/
+            System.out.println(i + ": " + str);
             fw.write(str + "\r\n");
             //fw.write("\r\n");
 
         }
-
+        System.out.println("Crawling Finished");
         fw.close();
     }
 

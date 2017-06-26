@@ -1,0 +1,276 @@
+BOOL HeapFree(HANDLE hHeap, DWORD dwFlags, LPVOID lpMem){
+//found following keywords: allocate,must,handle,free,create,
+    __sparrow_new();
+    must
+    __sparrow_deref();
+    __sparrow_delete();
+    __sparrow_new();
+}
+BOOL HeapLock(HANDLE hHeap){
+//found following keywords: allocate,must,handle,create,
+    __sparrow_new();
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL HeapQueryInformation(HANDLE HeapHandle, HEAP_INFORMATION_CLASS HeapInformationClass, PVOID HeapInformation, SIZE_T HeapInformationLength, PSIZE_T ReturnLength){
+//found following keywords: buffer,allocate,handle,free,create,
+    __sparrow_bufacc();
+    __sparrow_new();
+    __sparrow_deref();
+    __sparrow_delete();
+    __sparrow_new();
+}
+LPVOID HeapReAlloc(HANDLE hHeap, DWORD dwFlags, LPVOID lpMem, SIZE_T dwBytes){
+//found following keywords: allocate,must,handle,free,create,
+    __sparrow_new();
+    must
+    __sparrow_deref();
+    __sparrow_delete();
+    __sparrow_new();
+}
+BOOL HeapSetInformation(HANDLE HeapHandle, HEAP_INFORMATION_CLASS HeapInformationClass, PVOID HeapInformation, SIZE_T HeapInformationLength){
+//found following keywords: buffer,must,handle,create,
+    __sparrow_bufacc();
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+SIZE_T HeapSize(HANDLE hHeap, DWORD dwFlags, LPCVOID lpMem){
+//found following keywords: allocate,must,handle,free,create,
+    __sparrow_new();
+    must
+    __sparrow_deref();
+    __sparrow_delete();
+    __sparrow_new();
+}
+BOOL HeapUnlock(HANDLE hHeap){
+//found following keywords: must,handle,create,
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL HeapValidate(HANDLE hHeap, DWORD dwFlags, LPCVOID lpMem){
+//found following keywords: allocate,must,handle,returns,free,create,
+    __sparrow_new();
+    must
+    __sparrow_deref();
+    return
+    __sparrow_delete();
+    __sparrow_new();
+}
+BOOL HeapWalk(HANDLE hHeap, LPPROCESS_HEAP_ENTRY lpEntry){
+//found following keywords: handle,returns,
+    __sparrow_deref();
+    return
+}
+BOOL HideCaret(HWND hWnd){
+//found following keywords: must,handle,returns,
+    must
+    __sparrow_deref();
+    return
+}
+BOOL HiliteMenuItem(HWND hwnd, HMENU hmenu, UINT uItemHilite, UINT uHilite){
+//found following keywords: must,handle,
+    must
+    __sparrow_deref();
+}
+DWORD IdentifyNtmsSlot(HANDLE hSession, LPNTMS_GUID lpSlotID, DWORD dwOption){
+//found following keywords: returns,
+    return
+}
+BOOL ImpersonateDdeClientWindow(HWND hWndClient, HWND hWndServer){
+//found following keywords: must,handle,create,
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+DWORD ImportNtmsDatabase(HANDLE hSession){
+//found following keywords: returns,
+    return
+}
+BOOL InflateRect(LPRECT lprc, int dx, int dy){
+//found following keywords: must,
+    must
+}
+BOOL InitAtomTable(DWORD nSize){
+//found following keywords: returns,create,
+    return
+    __sparrow_new();
+}
+VOID InitializeConditionVariable(PCONDITION_VARIABLE ConditionVariable){
+//found following keywords: must,
+    must
+}
+void InitializeCriticalSection(LPCRITICAL_SECTION lpCriticalSection){
+//found following keywords: must,delete,
+    must
+    __sparrow_delete();
+}
+BOOL InitializeCriticalSectionEx(LPCRITICAL_SECTION lpCriticalSection, DWORD dwSpinCount, DWORD Flags){
+//found following keywords: must,free,create,delete,
+    must
+    __sparrow_delete();
+    __sparrow_new();
+    __sparrow_delete();
+}
+BOOL InitializeCriticalSectionAndSpinCount(LPCRITICAL_SECTION lpCriticalSection, DWORD dwSpinCount){
+//found following keywords: must,returns,free,delete,
+    must
+    return
+    __sparrow_delete();
+    __sparrow_delete();
+}
+BOOL InitializeProcessForWsWatch(HANDLE hProcess){
+//found following keywords: dynamic,must,handle,
+    __sparrow_new();
+    must
+    __sparrow_deref();
+}
+BOOL InitializeProcThreadAttributeList(LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList, DWORD dwAttributeCount, _Reserved_DWORD dwFlags, PSIZE_T lpSize){
+//found following keywords: buffer,must,returns,
+    __sparrow_bufacc();
+    must
+    return
+}
+VOID InitializeSRWLock(PSRWLOCK SRWLock){
+//found following keywords: dynamic,must,
+    __sparrow_new();
+    must
+}
+VOID InitializeThreadpoolEnvironment(PTP_CALLBACK_ENVIRON pcbe){
+//found none
+}
+DWORD InitiateShutdown(LPTSTR lpMachineName, LPTSTR lpMessage, DWORD dwGracePeriod, DWORD dwShutdownFlags, DWORD dwReason){
+//found following keywords: must,returns,
+    must
+    return
+}
+BOOL InitiateSystemShutdown(LPTSTR lpMachineName, LPTSTR lpMessage, DWORD dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown){
+//found following keywords: must,handle,create,
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL InitiateSystemShutdownEx(LPTSTR lpMachineName, LPTSTR lpMessage, DWORD dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown, DWORD dwReason){
+//found following keywords: must,handle,create,
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL InitOnceBeginInitialize(LPINIT_ONCE lpInitOnce, DWORD dwFlags, PBOOL fPending, LPVOID *lpContext){
+//found following keywords: must,returns,create,
+    must
+    return
+    __sparrow_new();
+}
+BOOL InitOnceComplete(LPINIT_ONCE lpInitOnce, DWORD dwFlags, LPVOID lpContext){
+//found following keywords: must,
+    must
+}
+BOOL InitOnceExecuteOnce(PINIT_ONCE InitOnce, PINIT_ONCE_FN InitFn, PVOID Parameter, LPVOID *Context){
+//found none
+}
+VOID InitOnceInitialize(PINIT_ONCE InitOnce){
+//found following keywords: dynamic,must,
+    __sparrow_new();
+    must
+}
+DWORD InjectNtmsCleaner(HANDLE hSession, LPNTMS_GUID lpLibrary, outLPNTMS_GUID lpInjectOperation, WORD dwNumberOfCleansLeft, DWORD dwAction){
+//found following keywords: must,returns,
+    must
+    return
+}
+DWORD InjectNtmsMedia(HANDLE hSession, LPNTMS_GUID lpLibraryId, LPNTMS_GUID lpInjectOperation, DWORD dwAction){
+//found following keywords: must,handle,returns,free,
+    must
+    __sparrow_deref();
+    return
+    __sparrow_delete();
+}
+BOOL InSendMessage(void){
+//found none
+}
+DWORD InSendMessageEx(_Reserved_LPVOID lpReserved){
+//found following keywords: must,
+    must
+}
+BOOL InsertMenu(HMENU hMenu, UINT uPosition, UINT uFlags, UINT_PTR uIDNewItem, LPCTSTR lpNewItem){
+//found following keywords: must,handle,create,
+    must
+    __sparrow_deref();
+    __sparrow_new();
+}
+BOOL InsertMenuItem(HMENU hMenu, UINT uItem, BOOL fByPosition, LPCMENUITEMINFO lpmii){
+//found following keywords: must,handle,
+    must
+    __sparrow_deref();
+}
+LONG __cdecl InterlockedCompareExchange(LONG volatile *Destination, LONG Exchange, LONG Comparand){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedCompareExchangeAcquire(LONG volatile *Destination, LONG Exchange, LONG Comparand){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONGLONG __cdecl InterlockedCompareExchangeAcquire64(LONGLONG volatile *Destination, LONGLONG Exchange, LONGLONG Comparand){
+//found following keywords: must,returns,
+    must
+    return
+}
+PVOID __cdecl InterlockedCompareExchangePointer(PVOID volatile *Destination, PVOID Exchange, PVOID Comparand){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedCompareExchangeRelease(LONG volatile *Destination, LONG Exchange, LONG Comparand){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONGLONG __cdecl InterlockedCompareExchangeRelease64(LONGLONG volatile *Destination, LONGLONG Exchange, LONGLONG Comparand){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedDecrement(LONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONGLONG __cdecl InterlockedDecrement64(LONGLONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedDecrementAcquire(LONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedDecrementRelease(LONG volatile *Addend){
+//found following keywords: must,returns,
+    must
+    return
+}
+LONG __cdecl InterlockedExchange(LONG volatile *Target, LONG Value){
+//found following keywords: returns,
+    return
+}
+LONGLONG __cdecl InterlockedExchangeAcquire64(LONGLONG volatile Target, LONGLONG Value){
+//found following keywords: returns,
+    return
+}
+LONG __cdecl InterlockedExchangeAdd(LONG volatile *Addend, LONG Value){
+//found following keywords: must,returns,
+    must
+    return
+}
+PVOID __cdecl InterlockedExchangePointer(PVOID volatile *Target, PVOID Value){
+//found following keywords: must,returns,
+    must
+    return
+}

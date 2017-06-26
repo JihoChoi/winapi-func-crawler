@@ -4,7 +4,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Created by Jiho on 2017. 6. 1..
  */
@@ -14,7 +15,7 @@ public class WinFuncParser {
         System.out.println("Function Parser is to retrieve functions from the MSDN Page.");
         System.out.println("");
     }
-    public String addWord(String line, String str1, String keyword){
+    /*public String addWord(String line, String str1, String keyword){
     	if (line.contains(keyword)){
     		if (!str1.contains(keyword))
     			return keyword;
@@ -24,13 +25,44 @@ public class WinFuncParser {
     	else {
     		return "";
     	}
+    }*/
+    public void changeStatus(String line, WinFuncObj obj){
+    	if (line.contains("File")){
+//    		System.out.println("passed");
+        	obj.file=true;
+        }
+        if (line.contains("allocate")){
+        	obj.allocate=true;
+        }
+        if (line.contains("dynamic")){
+        	obj.dynamic=true;
+        }
+        if (line.contains("must")){
+        	obj.must=true;
+        }
+        if (line.contains("handle")){
+        	obj.handle=true;
+        }
+        if (line.contains("returns")){
+        	obj.returns=true;
+        }
+        if (line.contains("free")){
+        	obj.free=true;
+        }
+        if (line.contains("create")){
+        	obj.create=true;
+        }
+        if (line.contains("delete")){
+        	obj.delete=true;
+        }
+        if (line.contains("buffer")){
+        	obj.buffer=true;
+        }
     }
-
-	
-    public String parse(String target) throws Exception {
+    public WinFuncObj parse(String target) throws Exception {
 
 //        System.out.println("Target: " + target);
-
+    	WinFuncObj obj = new WinFuncObj();
         HttpURLConnection conn = (HttpURLConnection) new URL(target).openConnection();
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
@@ -49,43 +81,50 @@ public class WinFuncParser {
                     line = br.readLine();
                 }
 
-                while (line.contains("</pre>") == false) {
+                //while (line.contains("See also") == false && line.contains("See Also") == false) {
+                while (line.contains("</pre>")==false) {
                     str += line;
                     line = br.readLine();
+                    
+                    //below code was for finding only buffer and size keywords
+                    /*if (line == null){
+                    	break;
+                    }
+                	if (line.contains("uffer")){
+                		if (!str.contains("uffer"))
+                			str += "uffer ";
+                	}
+                	if (line.contains("Size") || line.contains("size")){
+                		if (!str.contains("Size") || ! line.contains("size"))
+                			str += "size ";
+                	}*/
                 }
+                changeStatus(str, obj);
                 hasFunc = 1;
                 
-                System.out.println("ORG 1  : " + str);
+                //System.out.println("ORG  : " + str);
             }
             
             if (hasFunc == 1 && line.contains("Parameters")){
             	line = br.readLine();
-            	
+            	String temp = new String();
             	while (line.contains("See also") == false && line.contains("See Also") == false){
-            		str += addWord(line, str, "uffer");
-            		str += addWord(line, str, "allocate");
-            		str += addWord(line, str, "dynamic");
-            		str += addWord(line, str, "must");
-            		str += addWord(line, str, "handle");
-            		str += addWord(line, str, "one of the following");
-            		str += addWord(line, str, "file");
-            		str += addWord(line, str, "free");
-            		str += addWord(line, str, "create");
-            		str += addWord(line, str, "delete");
             		// str += addWord(line, str, "");
-            		
+            		temp += line;
             		line = br.readLine();
             		
             	}
-            	
-            	System.out.println("ORG 2  : " + str);
+            	changeStatus(temp, obj);
+            	obj.str = str;
+            	System.out.println("ORG  : " + obj.str);
             	break;
             }
+            
         }
         conn.disconnect();
         br.close();
 
-        return str;
+        return obj;
     }
 
 
