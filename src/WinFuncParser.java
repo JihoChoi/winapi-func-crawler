@@ -58,6 +58,7 @@ public class WinFuncParser {
         if (line.contains("buffer")){
         	obj.buffer=true;
         }
+        
     }
     public WinFuncObj parse(String target) throws Exception {
 
@@ -112,7 +113,22 @@ public class WinFuncParser {
             		// str += addWord(line, str, "");
             		temp += line;
             		line = br.readLine();
-            		
+            		if(line.contains("ERROR_")){
+            			for(int i = 0; i<line.length(); i++){
+            				if(line.charAt(i) == 'E'){
+            					if(line.substring(i, i+6).equals("ERROR_")){
+            						int x = i;
+            						String tep = "";
+            						while(line.charAt(x) != '<'){
+            							tep += line.charAt(x);
+            							x++;
+            						}
+            						if(!tep.equals("ERROR_SUCCESS"))
+            						obj.errors.add(tep);
+            					}
+            				}
+            			}
+            		}
             	}
             	changeStatus(temp, obj);
             	obj.str = str;

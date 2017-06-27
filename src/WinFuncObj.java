@@ -13,6 +13,7 @@ public class WinFuncObj {
 	boolean create = false;
 	boolean delete = false;
 	boolean buffer = false;
-	
+	boolean error = false;
 	String str = new String();
+	List<String> errors = new ArrayList<>();
 }

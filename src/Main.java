@@ -83,7 +83,7 @@ public class Main {
             }
         }
 
-        int index = 1001; // Index\
+        int index = 1111; // Index\
         WinFuncParser funcParser = new WinFuncParser();
         FileWriter fw = new FileWriter("./log/" + index+"-"+ (index+50) +".c");
 
@@ -105,7 +105,7 @@ public class Main {
 
             if (i++ < index - 2) { continue; }
             
-            if (i > 1050) break;
+            if (i > 1114) break;
             
             WinFuncObj obj = funcParser.parse(url);
 
@@ -121,24 +121,44 @@ public class Main {
             str = str.replace("<span style=\"color:Blue;\">", "");
             str = str.replace("</span>", "");
             str = str.replace("WINAPI", "");
-
             str = str.replace("_Inout_", "");
             str = str.replaceAll(String.valueOf((char)160), "");
-
             str = str.replaceAll("  ", " ");
-
-
             str = str.replaceAll("CALLBACK ", "");
             str = str.replaceAll("const", "");
             str = str.replaceAll("\\( ", "\\(");
             str = str.trim();
-
             str = str.replaceAll(";", "");
             
-            
             str = str + "{" + "\r\n" + "//found following keywords: ";
-            //str += addKeyword(str, "Buffer");
-            //str += addKeyword(str, "allocate");
+            String gen = "    if(";
+            if(!obj.errors.isEmpty()){
+            	String error = "";
+            	for(int x = 0; x < obj.errors.size(); x++){
+                	FileReader in_fr = new FileReader("./error_list.txt");
+                	br = new BufferedReader(in_fr);
+                	error = br.readLine();
+                	while(error != null){
+                		String err = obj.errors.get(x);
+                		//System.out.println(err);
+                    	if(error.equals(err)){
+                    			error = br.readLine();
+                    			error = br.readLine();
+                    			String temp = "";
+                    			int y = 0;
+                    			while(error.charAt(y) != '('){
+                    				temp += error.charAt(y);
+                    				//System.out.println(error.charAt(y));
+                    				y++;
+                    			}
+                    			obj.errors.set(x, temp);
+                    			//br.close();
+                    			break;
+                    	}
+                    	error = br.readLine();
+                    }
+                }
+            }
             obj.str = str;
             String funcs = "";
             if (obj.handle == true){
@@ -184,62 +204,7 @@ public class Main {
             	if(funcs.contains("    __sparrow_new();")==false)
             		funcs += "    __sparrow_delete();" + "\r\n";
             }
-            /*
-            if (str.contains("allocate")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("allocate"), "");
-            	str = strReverse(str);
-            	str += "allocate, ";
-            }
-            if (str.contains("dynamic")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("dynamic"), "");
-            	str = strReverse(str);
-            	str += "dynamic, ";
-            }
-            if (str.contains("must")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("must"), "");
-            	str = strReverse(str);
-            	str += "must, ";
-            }
-            if (str.contains("handle")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("handle"), "");
-            	str = strReverse(str);
-            	str += "handle, ";
-            }
-            if (str.contains("returns one of the following")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("returns one of the following"), "");
-            	str = strReverse(str);
-            	str += "returns one of the following, ";
-            }
-            if (str.contains("file")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("file"), "");
-            	str = strReverse(str);
-            	str += "file, ";
-            }
-            if (str.contains("free")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("free"), "");
-            	str = strReverse(str);
-            	str += "free, ";
-            }
-            if (str.contains("create")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("create"), "");
-            	str = strReverse(str);
-            	str += "create, ";
-            }
-            if (str.contains("delete")){
-            	str = strReverse(str);
-            	str = str.replaceFirst(strReverse("delete"), "");
-            	str = strReverse(str);
-            	str += "delete, ";
-            }
-*/
+
             if(funcs != ""){
             	str += "\r\n" + funcs;
             }
@@ -247,19 +212,27 @@ public class Main {
             	str = str.replaceAll("found following keywords: ", "");
             	str += "found none" + "\r\n";
             }
-            str = str + "}";
-/*      
-            if (str.contains("uffer") && str.contains("size")){
-            	System.out.println("found");
-                fw.write("found" + "\r\n");
+            
+            for (int z =0; z < obj.errors.size(); z ++) {
+            	if(!(z + 1 == obj.errors.size())){
+            		gen += " x == " + obj.errors.get(z) + "||";
+            	}	
+            	else{
+            		gen += " x == " + obj.errors.get(z) + ")";
+            	}
             }
-            else{
-            	System.out.println("not found");
-            	fw.write("\r\n");
-            }*/
+            if(!gen.equals("    if(")){
+                gen += "{" + "\r\n";
+                gen += "        return x;" + "\r\n" + "    }" + "\r\n";
+                gen += "    else{" + "\r\n";
+                gen += "        return 0;" + "\r\n";
+                gen += "    }" + "\r\n";
+            	str += gen; 
+            }
+            str = str + "}";
+
             System.out.println(i + ": " + str);
             fw.write(str + "\r\n");
-            //fw.write("\r\n");
 
         }
         System.out.println("Crawling Finished");
