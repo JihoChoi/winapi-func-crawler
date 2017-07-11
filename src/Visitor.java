@@ -50,6 +50,8 @@ public class Visitor
         keywords.add("file");
         keywords.add("create");
         keywords.add("delete");
+//        keywords.add("should not be NULL");
+//        keywords.add("be NULL");
         
         List<String> has = new ArrayList<String>();
 
@@ -100,10 +102,12 @@ public class Visitor
                 if (has.size() > 0) {
                 	String keyList = has.toString();
                 	result += keyList.substring(1, keyList.length() - 1);
+//                	System.out.println(result);
                 }
                 result += "}";
                 
                 System.out.println(result);
+//                System.out.println("nope");
                 break;
             }
 
