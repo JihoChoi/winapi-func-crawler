@@ -1,0 +1,7 @@
+int x = __sparrow_top;
+if( x == 5 || x == 2351|| x == 234 ){
+    return x;
+}
+else{
+    return 0;
+}

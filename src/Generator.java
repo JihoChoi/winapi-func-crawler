@@ -31,11 +31,11 @@ public class Generator {
         int flag = 0;
         FileWriter fw = new FileWriter("output.txt");
         String error;
-        String gen = "if(";
+        String gen = "int x = __sparrow_top;" + "\r\n" + "if(";
         
         line = br.readLine();
         do{
-        	if(line.contains("ERROR_") && !line.equals("ERROR_SUCCESS")){
+        	if((line.contains("ERROR_") && !line.equals("ERROR_SUCCESS")) || (line.contains("NERR_") && !line.equals("NERR_Success"))){
         		error_array.add(line);
         	}
         	line = br.readLine();

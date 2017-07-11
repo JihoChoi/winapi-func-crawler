@@ -1,0 +1,6 @@
+ERROR_ACCESS_DENIED
+The user does not have access to the requested information.
+NERR_InvalidComputer
+The computer name is invalid.
+ERROR_MORE_DATA
+More entries are available. Specify a large enough buffer to receive all entries.

@@ -2135,7 +2135,11 @@ The system was resumed from hibernation.
 ERROR_FIRMWARE_UPDATED
 
 728 (0x2D8)
-Windows has detected that the system firmware (BIOS) was updated [previous firmware date = %2, current firmware date %3].
+Wind
+
+ows has detected that the system firmware (BIOS) was updated [previous firmware date
+
+	%2, current firmware date %3].
 
 ERROR_DRIVERS_LEAKING_LOCKED_PAGES
 
@@ -8796,7 +8800,11 @@ The search results exceed the offset range specified.
 ERROR_DS_RIDMGR_DISABLED
 
 8263 (0x2047)
-The directory service detected the subsystem that allocates relative identifiers is disabled. This can occur as a protective mechanism when the system determines a significant portion of relative identifiers (RIDs) have been exhausted. Please see http://go.microsoft.com/fwlink/p/?linkid=228610 for recommended diagnostic steps and the procedure to re-enable account creation.
+
+
+The directory service detected the subsystem that allocates relative identifiers is disabled. This can occur as a protective mechanism when the system determines a significant portion of relative identifiers (RIDs) have been exhausted. Please see http://go.microsoft.com/fwlink/p/?linki
+
+28610 for recommended diagnostic steps and the procedure to re-enable account creation.
 
 ERROR_DS_ROOT_MUST_BE_NC
 
@@ -10511,7 +10519,11 @@ The functional level of the AD LDS configuration set cannot be raised to the req
 ERROR_DOMAIN_SID_SAME_AS_LOCAL_WORKSTATION
 
 8644 (0x21C4)
-The domain join cannot be completed because the SID of the domain you attempted to join was identical to the SID of this machine. This is a symptom of an improperly cloned operating system install. You should run sysprep on this machine in order to generate a new machine SID. Please seehttp://go.microsoft.com/fwlink/p/?linkid=168895 for more information.
+
+
+The domain join cannot be completed because the SID of the domain you attempted to join was identical to the SID of this machine. This is a symptom of an improperly cloned operating system install. You should run sysprep on this machine in order to generate a new machine SID. Please seehttp://go.microsoft.com/fwlink/p/?linki
+
+68895 for more information.
 
 ERROR_DS_UNDELETE_SAM_VALIDATION_FAILED
 
@@ -12980,7 +12992,11 @@ The publisher metadata cannot be found in the resource.
 ERROR_EVT_EVENT_TEMPLATE_NOT_FOUND
 
 15003 (0x3A9B)
-The template for an event definition cannot be found in the resource (error = %1).
+
+
+The template for an event definition cannot be found in the resource (error
+
+%1).
 
 ERROR_EVT_INVALID_PUBLISHER_NAME
 
@@ -13716,3 +13732,97 @@ ERROR_API_UNAVAILABLE
 
 15841 (0x3DE1)
 This API cannot be used in the context of the caller's application type.
+
+NERR_Success
+
+0()
+
+
+NERR_InvalidComputer
+
+2351()
+
+
+NERR_NotPrimary
+
+2226()
+
+
+NERR_SpeGroupOp
+
+2234()
+
+
+NERR_LastAdmin
+
+2452()
+
+
+NERR_BadPassword
+
+2203()
+
+
+NERR_PasswordTooShort
+
+2245()
+
+
+NERR_UserNotFound
+
+2221()
+    
+
+ERROR_ACCESS_DENIED
+
+5()
+
+
+ERROR_NOT_ENOUGH_MEMORY
+
+8()
+
+
+ERROR_INVALID_PARAMETER
+
+87()
+
+
+ERROR_INVALID_NAME
+
+123()
+
+
+ERROR_INVALID_LEVEL
+
+124 ()
+
+
+ERROR_SESSION_CREDENTIAL_CONFLICT
+
+1219()
+
+
+RPC_S_SERVER_UNAVAILABLE
+
+2147944122()
+
+
+RPC_E_REMOTE_DISABLED
+
+2147549468()
+
+
+NERR_GroupNotFound
+
+2220()
+
+
+NERR_ClientNameNotFound
+
+2312()
+
+
+NERR_UserNotInGroup
+
+2237()

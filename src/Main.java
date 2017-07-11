@@ -83,9 +83,9 @@ public class Main {
             }
         }
 
-        int index = 1111; // Index\
+        int index = 1301; // Index\
         WinFuncParser funcParser = new WinFuncParser();
-        FileWriter fw = new FileWriter("./log/" + index+"-"+ (index+50) +".c");
+        FileWriter fw = new FileWriter("./log/" + index+"-"+ (index+49) +".c");
 
         int i = 0;
 
@@ -103,13 +103,11 @@ public class Main {
 
             // This line is for skipping the existing functions
 
-            if (i++ < index - 2) { continue; }
+            if (i++ < index - 1) { continue; }
             
-            if (i > 1114) break;
-            
+            if (i > index+49) break;
             WinFuncObj obj = funcParser.parse(url);
 
-            //String str = funcParser.parse(url);
             String str = obj.str;
             str = str.replace("_IN_", "");
             str = str.replace("_In_", "");
@@ -131,8 +129,9 @@ public class Main {
             str = str.replaceAll(";", "");
             
             str = str + "{" + "\r\n" + "//found following keywords: ";
-            String gen = "    if(";
-            if(!obj.errors.isEmpty()){
+            int flag = 0 ;
+            String gen = "\r\n" + "int x = __sparrow_top;" + "\r\n" +  "if(";
+            if(!obj.errors.isEmpty() && obj.returns){
             	String error = "";
             	for(int x = 0; x < obj.errors.size(); x++){
                 	FileReader in_fr = new FileReader("./error_list.txt");
@@ -140,7 +139,6 @@ public class Main {
                 	error = br.readLine();
                 	while(error != null){
                 		String err = obj.errors.get(x);
-                		//System.out.println(err);
                     	if(error.equals(err)){
                     			error = br.readLine();
                     			error = br.readLine();
@@ -148,11 +146,9 @@ public class Main {
                     			int y = 0;
                     			while(error.charAt(y) != '('){
                     				temp += error.charAt(y);
-                    				//System.out.println(error.charAt(y));
                     				y++;
                     			}
                     			obj.errors.set(x, temp);
-                    			//br.close();
                     			break;
                     	}
                     	error = br.readLine();
@@ -207,10 +203,11 @@ public class Main {
 
             if(funcs != ""){
             	str += "\r\n" + funcs;
+            	str += "    return __sparrow_top;" + "\r\n";
             }
             else{
             	str = str.replaceAll("found following keywords: ", "");
-            	str += "found none" + "\r\n";
+            	str += "" + "\r\n";
             }
             
             for (int z =0; z < obj.errors.size(); z ++) {
@@ -220,8 +217,10 @@ public class Main {
             	else{
             		gen += " x == " + obj.errors.get(z) + ")";
             	}
+            	if(obj.errors.get(z).contains("ERROR"))
+            		flag = 1;
             }
-            if(!gen.equals("    if(")){
+            if(!gen.equals("    if(") && flag == 0 && obj.returns){
                 gen += "{" + "\r\n";
                 gen += "        return x;" + "\r\n" + "    }" + "\r\n";
                 gen += "    else{" + "\r\n";
@@ -233,6 +232,7 @@ public class Main {
 
             System.out.println(i + ": " + str);
             fw.write(str + "\r\n");
+            
 
         }
         System.out.println("Crawling Finished");

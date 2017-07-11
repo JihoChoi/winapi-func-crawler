@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Character;
 /**
  * Created by Jiho on 2017. 6. 1..
  */
@@ -40,10 +41,10 @@ public class WinFuncParser {
         if (line.contains("must")){
         	obj.must=true;
         }
-        if (line.contains("handle")){
+        if (line.toLowerCase().contains("should not be <strong>NULL</strong>")){
         	obj.handle=true;
         }
-        if (line.contains("returns")){
+        if (line.contains("returns one of the following")){
         	obj.returns=true;
         }
         if (line.contains("free")){
@@ -78,53 +79,38 @@ public class WinFuncParser {
                 line = br.readLine();
 
                 if (line.isEmpty()) {
-//                    System.out.println("Current line is empty!");
                     line = br.readLine();
                 }
 
-                //while (line.contains("See also") == false && line.contains("See Also") == false) {
                 while (line.contains("</pre>")==false) {
                     str += line;
                     line = br.readLine();
-                    
-                    //below code was for finding only buffer and size keywords
-                    /*if (line == null){
-                    	break;
-                    }
-                	if (line.contains("uffer")){
-                		if (!str.contains("uffer"))
-                			str += "uffer ";
-                	}
-                	if (line.contains("Size") || line.contains("size")){
-                		if (!str.contains("Size") || ! line.contains("size"))
-                			str += "size ";
-                	}*/
                 }
                 changeStatus(str, obj);
                 hasFunc = 1;
                 
-                //System.out.println("ORG  : " + str);
             }
             
             if (hasFunc == 1 && line.contains("Parameters")){
             	line = br.readLine();
             	String temp = new String();
             	while (line.contains("See also") == false && line.contains("See Also") == false){
-            		// str += addWord(line, str, "");
             		temp += line;
             		line = br.readLine();
+            		if(line == null)
+            			break;
             		if(line.contains("ERROR_")){
             			for(int i = 0; i<line.length(); i++){
-            				if(line.charAt(i) == 'E'){
+            				if(line.charAt(i) == 'E' && i+6 < line.length()-1){
             					if(line.substring(i, i+6).equals("ERROR_")){
             						int x = i;
             						String tep = "";
-            						while(line.charAt(x) != '<'){
+            						while(line.charAt(x) != '<' && !Character.isWhitespace(line.charAt(x)) && x < line.length()-1){
             							tep += line.charAt(x);
             							x++;
             						}
             						if(!tep.equals("ERROR_SUCCESS"))
-            						obj.errors.add(tep);
+            							obj.errors.add(tep);
             					}
             				}
             			}
