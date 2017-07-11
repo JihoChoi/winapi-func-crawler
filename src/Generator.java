@@ -35,7 +35,7 @@ public class Generator {
         
         line = br.readLine();
         do{
-        	if((line.contains("ERROR_") && !line.equals("ERROR_SUCCESS")) || (line.contains("NERR_") && !line.equals("NERR_Success"))){
+        	if((line.contains("ERROR_") && !line.equals("ERROR_SUCCESS")) || (line.contains("NERR_") && !line.equals("NERR_Success")) || (line.contains("RPC_"))){
         		error_array.add(line);
         	}
         	line = br.readLine();

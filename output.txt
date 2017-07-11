@@ -1,5 +1,5 @@
 int x = __sparrow_top;
-if( x == 5 || x == 2351|| x == 234 ){
+if( x == 5 || x == 2220|| x == 1387 || x == 1377 ){
     return x;
 }
 else{
