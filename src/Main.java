@@ -83,17 +83,11 @@ public class Main {
             }
         }
 
-        int index = 1301; // Index\
+        int index = 1626; // Index\
         WinFuncParser funcParser = new WinFuncParser();
         FileWriter fw = new FileWriter("./log/" + index+"-"+ (index+49) +".c");
 
         int i = 0;
-
-//        Scanner scanIn = new Scanner(System.in);
-//        sWhatever = scanIn.nextLine();
-//
-//        scanIn.close();
-//        System.out.println(sWhatever);
 
         for (String url : URLs) {
         	
@@ -103,8 +97,8 @@ public class Main {
 
             // This line is for skipping the existing functions
 
-            if (i++ < index - 1) { continue; }
-            
+            if (i++ < index -1 ) { continue; }
+            //if (i > 1492) break;
             if (i > index+49) break;
             WinFuncObj obj = funcParser.parse(url);
 
@@ -129,8 +123,8 @@ public class Main {
             str = str.replaceAll(";", "");
             
             str = str + "{" + "\r\n" + "//found following keywords: ";
-            int flag = 0 ;
-            String gen = "\r\n" + "int x = __sparrow_top;" + "\r\n" +  "if(";
+            //int flag = 0 ;
+            String gen = "\r\n" + "    int x = __sparrow_top;" + "\r\n" +  "    if(";
             if(!obj.errors.isEmpty() && obj.returns){
             	String error = "";
             	for(int x = 0; x < obj.errors.size(); x++){
@@ -217,10 +211,10 @@ public class Main {
             	else{
             		gen += " x == " + obj.errors.get(z) + ")";
             	}
-            	if(obj.errors.get(z).contains("ERROR"))
-            		flag = 1;
+            	/*if(obj.errors.get(z).contains("ERROR") || obj.errors.get(z).contains("NERR"))
+            		flag = 1;*/
             }
-            if(!gen.equals("    if(") && flag == 0 && obj.returns){
+            if(!gen.equals("    if(") && obj.returns && !obj.errors.isEmpty()){
                 gen += "{" + "\r\n";
                 gen += "        return x;" + "\r\n" + "    }" + "\r\n";
                 gen += "    else{" + "\r\n";

@@ -1,8 +1,14 @@
 ERROR_ACCESS_DENIED
-The user does not have access to the requested information.
-NERR_GroupNotFound
-The local group specified by the groupname parameter does not exist.
-ERROR_NO_SUCH_MEMBER
-One or more of the specified members do not exist. No members were deleted.
-ERROR_MEMBER_NOT_IN_ALIAS
-One or more of the members specified were not members of the local group. No members were deleted.
+The caller does not have the appropriate access to complete the operation.
+ERROR_INVALID_PARAMETER
+A parameter is incorrect.
+ERROR_NOT_SUPPORTED
+This request is not supported. This error is returned on Windows Vista and later.
+NERR_AlreadyExists
+The message alias already exists on this computer. For more information, see the following Remarks section.
+NERR_DuplicateName
+The name specified is already in use as a message alias on the network.
+NERR_NetworkError
+A general failure occurred in the network hardware.
+NERR_TooManyNames
+The maximum number of message aliases has been exceeded.
