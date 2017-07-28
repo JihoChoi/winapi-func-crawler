@@ -1,3 +1,11 @@
+.idea/**
+bin/**
+log/**
+winapi-func-crawler.iml
+
+
+
+
 
 
 # Created by https://www.gitignore.io/api/intellij
