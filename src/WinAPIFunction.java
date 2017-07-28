@@ -1,13 +1,35 @@
+
+
+
+
+
+import function.FuncParameter;
+import function.FuncReturn;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Jiho on 2017. 6. 22..
- */
+
 
 
 public class WinAPIFunction {
+
+
+    public List<FuncParameter> funcParameters;
+    public FuncReturn funcReturn;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     String syntax;
     List<String> keywords;

@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -10,34 +9,23 @@ import java.util.List;
 /**
  * Created by Jiho on 2017. 6. 1..
  *
- *
+ * This class is to retrieve all the information from the WinAPI MSDN Page.
  *
  */
 
 
-public class Visitor
+
+public class WebVisitor
 {
 
-
-    public Visitor()
+    public WebVisitor()
     {
-        System.out.println("=========================================================================");
-        System.out.println("Visitor Class is to retrieve all the information from the WinAPI MSDN Page.");
-        System.out.println("=========================================================================");
-        System.out.println("");
+
+
     }
 
     /* Connect the URL and retrieve the markup as string buffer */
 
-
-    public void retrieveManualPage(String url) throws Exception {
-
-
-//        conn.disconnect();
-
-        //        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-        //        return br;
-    }
 
 
     public WinAPIFunction buildFunction(String url) throws IOException {
@@ -157,6 +145,37 @@ public class Visitor
         return str;
     }
 
+
+
+    public MSDNPage retrieveManualPage(String url) throws Exception
+    {
+
+        // TODO Try Catch Error Handling
+
+        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+
+        MSDNPage page = new MSDNPage(url);
+
+        String line;
+        String buffer = new String();
+
+        while ((line = br.readLine()) != null) {
+            buffer = buffer + line + "\n\r";
+
+        }
+
+
+        System.out.println(url);
+        System.out.println(buffer);
+        br.close();
+
+        conn.disconnect();
+
+        page.setManualPageBuffer(buffer);
+
+        return page;
+    }
 
 
 
