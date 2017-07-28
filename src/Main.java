@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.String;
@@ -9,7 +6,7 @@ import java.lang.String;
 
 /**
  *
- *  @author     Jiho, Eric, Vanessa
+ *  @author     Jiho Choi, Eric Song, Vanessa Hwang
  *  @since      2017.6.1
  *
  *  Strategy Design Pattern
@@ -32,38 +29,27 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-//        /* Retrieve Target URLS */
-//
+//      /* Retrieve Target URLS */
 //        WinAPIFunctionURLParser parser = new WinAPIFunctionURLParser();
 //        List<String> URLs = parser.retrieveFunctionInformation();
-//        // Retrieve MSDN URLs and write to file.
-//        FileWriter writer = new FileWriter("data/msdn_target_urls.txt");
+//        FileWriter writer = new FileWriter("resource/msdn_target_urls.txt");
 //        for(String url: URLs) {
 //            writer.write(url + "\r\n");
 //        }
 //        writer.close();
+        
 
-        List<String> URLs = new ArrayList<>();
-        FileReader fr = new FileReader("data/msdn_target_urls.txt");
-        BufferedReader br = new BufferedReader(fr);
-
-        int num = 0;
-        String currentLine;
-        while ((currentLine = br.readLine()) != null) {
-            URLs.add(currentLine);
-            num++;
-        }
+        List<String> URLs = retrieveUrlList("resource/msdn_target_urls.txt");
 
         // if directory not exist, create
         createDir("log");
         createDir("temp");
 
-
         WebVisitor visitor = new WebVisitor();
-        FileWriter fw = new FileWriter("./temp/temp.txt");
+        //FileWriter fw = new FileWriter("./temp/temp.txt");
 
         int i = 0;
-        int index = 863; // Index
+        int index = 863; // Function Index of Google Sheet
 
         for (String url : URLs)
         {
@@ -78,7 +64,6 @@ public class Main {
 
 
 //            String str = visitor.retrieveFunctionInformation(url);
-
 //            visitor.retrieveManualPage(url);
 
             MSDNPage page = visitor.retrieveManualPage(url);
@@ -94,9 +79,25 @@ public class Main {
 
         }
 
-        fw.close();
+//        fw.close();
 
 
+    }
+
+
+    public static List<String> retrieveUrlList(String path) throws IOException {
+        List<String> URLs = new ArrayList<>();
+        FileReader fr = new FileReader(path);
+        BufferedReader br = new BufferedReader(fr);
+
+        int num = 0;
+        String currentLine;
+        while ((currentLine = br.readLine()) != null) {
+            URLs.add(currentLine);
+            num++;
+        }
+
+        return URLs;
     }
 
     public static void createDir(String name)

@@ -4,12 +4,12 @@ package function;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FuncReturn {
+public class FuncReturnValue {
 
     public final Type type;
     public List<String> errorList;
 
-    public FuncReturn(Type type, List<String> errorList) {
+    public FuncReturnValue(Type type, List<String> errorList) {
         this.type = type;
 
         this.errorList = new ArrayList<String>();
