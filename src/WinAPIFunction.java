@@ -4,7 +4,7 @@
 
 
 import function.FuncParameter;
-import function.FuncReturn;
+import function.FuncReturnValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 public class WinAPIFunction {
 
     public List<FuncParameter> funcParameters;
-    public FuncReturn funcReturn;
+    public FuncReturnValue funcReturn;
 
     public String syntax;
     public List<String> keywords;
