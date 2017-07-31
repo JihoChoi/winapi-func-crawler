@@ -14,51 +14,34 @@ import java.util.List;
 
 public class WinAPIFunction {
 
-
     public List<FuncParameter> funcParameters;
     public FuncReturn funcReturn;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    String syntax;
-    List<String> keywords;
+    public String syntax;
+    public List<String> keywords;
 
     // Syntax TODO
 
-    String returnType;
-    String name;
-    List<String> parameters;
-
     public WinAPIFunction() {
         keywords = new ArrayList<String>();
-
     }
 
-    public WinAPIFunction(String str) {
-        this.syntax = str;
+    public WinAPIFunction(String syntax) {
+        this.syntax = syntax;
+        this.funcParameters = new ArrayList<FuncParameter>();
+        parseSyntax();
     }
 
     public String getSyntax() {
-        return syntax;
+        return this.syntax;
     }
 
     public void setSyntax(String syntax) {
         this.syntax = syntax;
     }
-    public void addKeywords(String keyword) {
 
-        keywords.add(keyword);
+    public void addKeywords(String keyword) {
+        this.keywords.add(keyword);
     }
 
     public void trim() {
@@ -94,6 +77,22 @@ public class WinAPIFunction {
 
         // System.out.println("AFTER TRIM " + this.syntax);
 
+    }
+
+    /* assume that syntax is in the following format:
+
+    HANDLE FindFirstFileEx(LPCTSTR lpFileName, void *fInfoLevelId, LPVOID lpFindFileData, void *fSearchOp, LPVOID lpSearchFilter, DWORD dwAdditionalFlags) {}
+     */
+    private void parseSyntax() {
+        // temporary function syntax
+        this.syntax = "HANDLE FindFirstFileEx(LPCTSTR lpFileName, void *fInfoLevelId, LPVOID lpFindFileData, void *fSearchOp, LPVOID lpSearchFilter, DWORD dwAdditionalFlags) {}";
+        int beginIndex = this.syntax.indexOf("(");
+        int endIndex = this.syntax.indexOf(")");
+        String paramPart = this.syntax.substring(beginIndex + 1, endIndex);
+        while (paramPart.contains(",")) {
+            String currentParam = paramPart.substring(paramPart.indexOf(",") + 1);
+        }
+        System.out.println(paramPart);
     }
 
 }
