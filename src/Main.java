@@ -37,7 +37,6 @@ public class Main {
 //            writer.write(url + "\r\n");
 //        }
 //        writer.close();
-        
 
         List<String> URLs = retrieveUrlList("resource/msdn_target_urls.txt");
 
@@ -48,38 +47,38 @@ public class Main {
         WebVisitor visitor = new WebVisitor();
         //FileWriter fw = new FileWriter("./temp/temp.txt");
 
-        int i = 0;
-        int index = 863; // Function Index of Google Sheet
 
-        for (String url : URLs)
+        int index = 860;
+        for (int i = 0; i < URLs.size(); i++)
         {
-            if (url.equals("https://msdn.microsoft.com/en-us/library/aa383667")) {
+            if (i < index - 1) {
                 continue;
             }
 
-            // This line is to skip the existing functions
-            if (i++ < index - 2) {
-                continue;
-            }
-
-
-//            String str = visitor.retrieveFunctionInformation(url);
-//            visitor.retrieveManualPage(url);
-
-            MSDNPage page = visitor.retrieveManualPage(url);
-            System.out.println(url);
-            WinAPIFunction winFunc = visitor.buildFunction(url);
-
-
-            String out = winFunc.getSyntax();
-            System.out.println(out);
-
-//            fw.write(out + "\r\n");
-//            fw.write("\r\n");
+            System.out.println(i+1 + " : " + URLs.get(i) + " ");
+            MSDNPage page = visitor.retrieveManualPage(URLs.get(i));
 
         }
 
-//        fw.close();
+
+//        int i = 0;
+//        int index = 863; // Function Index of Google Sheet
+//
+//        for (String url : URLs)
+//        {
+//            if (url.equals("https://msdn.microsoft.com/en-us/library/aa383667")) {
+//                continue;
+//            }
+//            // This line is to skip the existing functions
+//            if (i++ < index - 2) {
+//                continue;
+//            }
+//            MSDNPage page = visitor.retrieveManualPage(url);
+//            System.out.println(url);
+//            if (i++ < index + 50 -2) {
+//                break;
+//            }
+//        }
 
 
     }
