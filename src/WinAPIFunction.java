@@ -19,6 +19,8 @@ public class WinAPIFunction {
 
     public String syntax;
     public List<String> keywords;
+    public Boolean hasErrorCode;
+    public String ErrorCode;
 
     // Syntax TODO
 
@@ -30,6 +32,8 @@ public class WinAPIFunction {
         this.syntax = syntax;
         this.funcParameters = new ArrayList<FuncParameter>();
         parseSyntax();
+        this.hasErrorCode = false;
+        this.ErrorCode = "";
     }
 
     public String getSyntax() {
@@ -89,11 +93,33 @@ public class WinAPIFunction {
         int beginIndex = this.syntax.indexOf("(");
         int endIndex = this.syntax.indexOf(")");
         String paramPart = this.syntax.substring(beginIndex + 1, endIndex);
+        System.out.println(paramPart);
         while (paramPart.contains(",")) {
             String currentParam = paramPart.substring(0, paramPart.indexOf(","));
             paramPart = paramPart.substring(paramPart.indexOf(",") + 1);
+            createParam(currentParam.trim());
         }
         System.out.println(paramPart);
+    }
+
+
+    private void createParam(String paramPart) {
+        // "DWORD dwAdditionalFlags"
+        // or "void *fInfoLevelId"
+        //paramPart = "void *fInfoLevelId";
+        System.out.println("paramPart = " + paramPart);
+        if (paramPart.contains("*")) {
+            String paramType = paramPart.substring(0, paramPart.lastIndexOf("*") + 1);
+            String paramName = paramPart.substring(paramPart.lastIndexOf("*") + 1);
+            System.out.println("paramType = " + paramType);
+            System.out.println("paramName = " + paramName);
+        }
+        else {
+            String paramType = paramPart.substring(0, paramPart.indexOf(" ") + 1);
+            String paramName = paramPart.substring(paramPart.indexOf(" ") + 1);
+            System.out.println("paramType = " + paramType);
+            System.out.println("paramName = " + paramName);
+        }
     }
 
 }
