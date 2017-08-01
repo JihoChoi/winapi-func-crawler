@@ -47,14 +47,11 @@ public class Main {
         WebVisitor visitor = new WebVisitor();
         //FileWriter fw = new FileWriter("./temp/temp.txt");
 
-
         int index = 860;
-        for (int i = 0; i < URLs.size(); i++)
-        {
-            if (i < index - 1) {
-                continue;
-            }
+        index--;
 
+        for (int i = index; i < index + 50; i++)
+        {
             System.out.println(i+1 + " : " + URLs.get(i) + " ");
             MSDNPage page = visitor.retrieveManualPage(URLs.get(i));
 
