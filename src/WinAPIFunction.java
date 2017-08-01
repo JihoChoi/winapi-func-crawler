@@ -90,7 +90,8 @@ public class WinAPIFunction {
         int endIndex = this.syntax.indexOf(")");
         String paramPart = this.syntax.substring(beginIndex + 1, endIndex);
         while (paramPart.contains(",")) {
-            String currentParam = paramPart.substring(paramPart.indexOf(",") + 1);
+            String currentParam = paramPart.substring(0, paramPart.indexOf(","));
+            paramPart = paramPart.substring(paramPart.indexOf(",") + 1);
         }
         System.out.println(paramPart);
     }
