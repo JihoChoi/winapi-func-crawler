@@ -7,6 +7,7 @@
 
 public class MSDNPage {
 
+
     public String URL;
     public String manualPageBuffer;
 
@@ -28,14 +29,6 @@ public class MSDNPage {
     public MSDNPage(String URL, String title) {
         this.URL = URL;
         this.title = title;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
-    }
-
-    public void setManualPageBuffer(String manualPageBuffer) {
-        this.manualPageBuffer = manualPageBuffer;
     }
 
 

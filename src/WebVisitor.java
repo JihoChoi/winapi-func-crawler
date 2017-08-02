@@ -150,29 +150,23 @@ public class WebVisitor
     public MSDNPage retrieveManualPage(String url) throws Exception
     {
 
-        // TODO Try Catch Error Handling
-
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
         MSDNPage page = new MSDNPage(url);
 
         String line;
-        String buffer = new String();
+        String buffer = "";
 
         while ((line = br.readLine()) != null) {
             buffer = buffer + line + "\n\r";
 
         }
 
-
-        System.out.println(url);
-        System.out.println(buffer);
         br.close();
-
         conn.disconnect();
 
-        page.setManualPageBuffer(buffer);
+        page.manualPageBuffer = buffer;
 
         return page;
     }
