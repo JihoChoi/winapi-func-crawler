@@ -3,8 +3,7 @@
 
 
 
-import function.FuncParameter;
-import function.FuncReturnValue;
+import function.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +20,8 @@ public class WinAPIFunction {
     public List<String> keywords;
     public Boolean hasErrorCode;
     public String ErrorCode;
+
+
 
     // Syntax TODO
 
@@ -97,28 +98,50 @@ public class WinAPIFunction {
         while (paramPart.contains(",")) {
             String currentParam = paramPart.substring(0, paramPart.indexOf(","));
             paramPart = paramPart.substring(paramPart.indexOf(",") + 1);
-            createParam(currentParam.trim());
+            createParams(currentParam.trim());
         }
         System.out.println(paramPart);
     }
 
 
-    private void createParam(String paramPart) {
+    private void createParams(String paramPart) {
         // "DWORD dwAdditionalFlags"
         // or "void *fInfoLevelId"
         //paramPart = "void *fInfoLevelId";
+        String paramType;
+        String paramName;
         System.out.println("paramPart = " + paramPart);
         if (paramPart.contains("*")) {
-            String paramType = paramPart.substring(0, paramPart.lastIndexOf("*") + 1);
-            String paramName = paramPart.substring(paramPart.lastIndexOf("*") + 1);
+            paramType = paramPart.substring(0, paramPart.lastIndexOf("*") + 1);
+            paramName = paramPart.substring(paramPart.lastIndexOf("*") + 1);
             System.out.println("paramType = " + paramType);
             System.out.println("paramName = " + paramName);
         }
         else {
-            String paramType = paramPart.substring(0, paramPart.indexOf(" ") + 1);
-            String paramName = paramPart.substring(paramPart.indexOf(" ") + 1);
+            paramType = paramPart.substring(0, paramPart.indexOf(" ") + 1);
+            paramName = paramPart.substring(paramPart.indexOf(" ") + 1);
             System.out.println("paramType = " + paramType);
             System.out.println("paramName = " + paramName);
+        }
+        FuncParameter param = new FuncParameter(createType(paramType), paramName)
+        this.funcParameters.add(param);
+    }
+
+    private Type createType(String typeName) {
+        // if type is a pointer
+        if (typeName.contains(" *")) {
+            String pointingTo = typeName.substring(0, typeName.indexOf(" "));
+            return new Type(true, createType(pointingTo));
+        }
+        else if (typeName.contains("* ")) {
+            String pointingTo = typeName.substring(0, typeName.indexOf("*"));
+            return new Type(true, createType((pointingTo)));
+        }
+        // TODO : needs another case where typeName is defined in type dictionary
+
+        // if type is not a pointer
+        else {
+            return new Type(false, NULL);
         }
     }
 

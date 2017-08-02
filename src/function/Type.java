@@ -5,12 +5,12 @@ package function;
  */
 public class Type {
 
-    public boolean pointer;
-    public Type pointerTo;
+    public boolean isPointer;
+    public Type type;
 
-    public Type(boolean pointer, Type pointerTo) {
-        this.pointer = pointer;
-        this.pointerTo = pointerTo;
+    public Type(boolean isPointer, Type type) {
+        this.isPointer = isPointer;
+        this.type = type;
     }
 
 }
