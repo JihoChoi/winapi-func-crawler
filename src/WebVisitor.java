@@ -159,8 +159,8 @@ public class WebVisitor
         String buffer = "";
 
         while ((line = br.readLine()) != null) {
-            buffer = buffer + line + "\n\r";
-
+//            buffer = buffer + line + "\n\r";
+            buffer = buffer + line + "\n";
         }
 
         br.close();

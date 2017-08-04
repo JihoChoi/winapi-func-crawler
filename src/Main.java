@@ -53,7 +53,11 @@ public class Main {
         for (int i = index; i < index + 50; i++)
         {
             System.out.println(i+1 + " : " + URLs.get(i) + " ");
+
             MSDNPage page = visitor.retrieveManualPage(URLs.get(i));
+            page.refineManualPageBuffer();
+
+
 
         }
 
